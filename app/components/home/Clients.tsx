@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 interface ClientItem {
@@ -81,13 +82,29 @@ const clients: ClientItem[] = [
 
 export default function Clients() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [pausedUntil, setPausedUntil] = useState<number>(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % clients.length);
+      setCurrentSlide((prev) => {
+        if (Date.now() < pausedUntil) return prev;
+        setIsAnimating(true);
+        setTimeout(() => setIsAnimating(false), 700);
+        return (prev + 1) % clients.length;
+      });
     }, 3500);
     return () => clearInterval(interval);
-  }, []);
+  }, [pausedUntil]);
+
+  const active = clients[currentSlide];
+  const advance = () => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setPausedUntil(Date.now() + 8000);
+    setCurrentSlide((i) => (i + 1) % clients.length);
+    setTimeout(() => setIsAnimating(false), 700);
+  };
 
   return (
     <section className="bg-white py-20 relative overflow-hidden">
@@ -104,94 +121,140 @@ export default function Clients() {
           </p>
         </div>
 
-        {/* DESKTOP GRID */}
-        <div className="hidden lg:grid grid-cols-2 gap-6">
-          {clients.map((c) => (
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+          <div className="relative z-0 lg:col-span-5">
             <div
-              key={c.name}
-              className="group relative overflow-hidden rounded-[2rem] border border-zinc-100 bg-white shadow-sm hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-700"
+              className="relative mx-auto h-[360px] sm:h-[420px] w-full max-w-[680px] lg:mx-0 lg:max-w-[520px] flex items-end"
+              onClick={advance}
+              onTouchStart={advance}
+              role="button"
+              tabIndex={0}
+              aria-label="Change industry images"
             >
-              <div className="flex min-h-[180px]">
-                <div className="relative w-[40%] overflow-hidden">
-                  <img
-                    src={c.image}
-                    alt={c.name}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:-translate-x-2"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/0 to-transparent" />
+              <div className="absolute -top-10 left-10 h-24 w-24 rounded-full bg-emerald-500/20 blur-2xl" />
+              <div className="absolute -bottom-10 right-10 h-28 w-28 rounded-full bg-[#0056b3]/20 blur-2xl" />
+
+              <div className="absolute inset-0 opacity-[0.06]">
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(circle at 1px 1px, rgba(0,0,0,0.9) 1px, rgba(0,0,0,0) 0)",
+                    backgroundSize: "22px 22px",
+                  }}
+                />
+              </div>
+
+              {clients.map((client, index) => {
+                const position = (index - currentSlide + clients.length) % clients.length;
+                // Only show active and next 2 cards in stack
+                if (position > 2 && position < clients.length - 1) return null;
+
+                const isTransitioningOut = isAnimating && position === clients.length - 1;
+
+                return (
+                  <div
+                    key={client.name}
+                    className={`group absolute left-1/2 bottom-4 w-[94%] sm:w-[78%] lg:w-[88%] -translate-x-1/2 rounded-[2rem] border border-zinc-200 bg-white shadow-2xl transition-all duration-700 ease-in-out ring-1 ring-black/5 ${
+                      position === 0
+                        ? "z-30 rotate-[-6deg] opacity-100 translate-y-0 scale-100"
+                        : position === 1
+                        ? "z-20 rotate-[2deg] -translate-y-[18px] lg:-translate-x-5 scale-[0.96] opacity-90"
+                        : position === 2
+                        ? "z-10 rotate-[10deg] -translate-y-[34px] lg:-translate-x-10 scale-[0.92] opacity-80"
+                        : isTransitioningOut
+                        ? "z-40 rotate-[-15deg] -translate-y-[120%] opacity-0 scale-110 pointer-events-none"
+                        : "z-0 opacity-0 scale-75 pointer-events-none"
+                    }`}
+                  >
+                    <div className="relative h-[260px] sm:h-[300px] w-full overflow-hidden rounded-[2rem]">
+                      <Image
+                        src={client.image}
+                        alt={client.name}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 1024px) 94vw, 560px"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-tr from-black/10 via-transparent to-transparent" />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="mt-8 flex justify-center gap-2">
+              {clients.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => {
+                    setPausedUntil(Date.now() + 8000);
+                    setCurrentSlide(i);
+                  }}
+                  className={`h-1.5 transition-all duration-500 rounded-full ${
+                    i === currentSlide ? "w-8 bg-emerald-500" : "w-2 bg-zinc-200"
+                  }`}
+                  aria-label={`Go to industry ${i + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="relative z-10 lg:col-span-7">
+            <div className="rounded-[2rem] border border-zinc-100 bg-white shadow-2xl shadow-zinc-200/40 overflow-hidden">
+              <div className="p-8 sm:p-10">
+                <div className="flex items-center gap-3">
+                  <div
+                    className={`h-12 w-12 rounded-2xl ${active.accent} flex items-center justify-center transition-transform duration-700`}
+                  >
+                    {active.icon}
+                  </div>
+                  <div>
+                    <p className="text-xs font-black uppercase tracking-[0.3em] text-zinc-500">
+                      Industry
+                    </p>
+                    <h4 className="mt-1 text-2xl sm:text-3xl font-black text-zinc-900">
+                      {active.name}
+                    </h4>
+                  </div>
                 </div>
 
-                <div className="w-[60%] p-8 flex flex-col justify-center">
-                  <div className="flex items-center gap-3">
+                <p className="mt-5 text-zinc-600 text-base sm:text-lg leading-relaxed">
+                  {active.desc} Our work focuses on safety-first execution, clear coordination,
+                  and on-time delivery across demanding operating environments.
+                </p>
+
+                <div className="mt-8 grid gap-3">
+                  {[
+                    "Planning, permits and coordination",
+                    "Equipment, fleet and crew readiness",
+                    "HSE-first execution and reporting",
+                    "Reliable response and continuous support",
+                  ].map((t) => (
                     <div
-                      className={`h-11 w-11 rounded-2xl ${c.accent} flex items-center justify-center transition-transform duration-700 group-hover:scale-110 group-hover:rotate-3`}
+                      key={t}
+                      className="flex items-start gap-3 rounded-2xl border border-zinc-100 bg-white/70 backdrop-blur px-5 py-4 shadow-sm"
                     >
-                      {c.icon}
+                      <div className="mt-1.5 h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,1)]" />
+                      <p className="text-sm font-bold text-zinc-700 leading-relaxed">{t}</p>
                     </div>
-                    <div>
-                      <p className="text-lg font-black text-zinc-900">{c.name}</p>
-                      <div className="mt-2 h-0.5 w-0 bg-gradient-to-r from-emerald-500 to-[#0056b3] transition-all duration-700 group-hover:w-12" />
+                  ))}
+                </div>
+
+                <div className="mt-10 grid gap-4 sm:grid-cols-2">
+                  {["Reliability", "Safety", "Coordination", "Readiness"].map((t) => (
+                    <div
+                      key={t}
+                      className="rounded-2xl border border-zinc-100 bg-zinc-50/60 p-6"
+                    >
+                      <p className="text-sm font-black text-zinc-900">{t}</p>
+                      <p className="mt-2 text-sm text-zinc-600">
+                        Practical execution standards that reduce operational friction.
+                      </p>
                     </div>
-                  </div>
-
-                  <p className="mt-4 text-sm text-zinc-500 leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
-                    {c.desc}
-                  </p>
-
-                  <div className="mt-6 flex items-center gap-2 text-[12px] font-black uppercase tracking-widest text-zinc-400 opacity-0 translate-y-2 transition-all duration-700 group-hover:opacity-100 group-hover:translate-y-0">
-                    Learn more
-                    <span className="h-px w-10 bg-zinc-200 group-hover:bg-emerald-400 transition-colors" />
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-
-        {/* MOBILE AUTO-SLIDER */}
-        <div className="lg:hidden relative h-[240px]">
-          {clients.map((c, index) => (
-            <div
-              key={c.name}
-              className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-                index === currentSlide ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
-              }`}
-            >
-              <div className="h-full rounded-[2rem] border border-zinc-100 bg-white shadow-xl overflow-hidden">
-                <div className="flex h-full">
-                  <div className="w-[38%] relative">
-                    <img
-                      src={c.image}
-                      alt={c.name}
-                      className="h-full w-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/15 to-transparent" />
-                  </div>
-                  <div className="w-[62%] p-6 flex flex-col justify-center">
-                    <div className="flex items-center gap-3">
-                      <div className={`h-12 w-12 rounded-2xl ${c.accent} flex items-center justify-center`}>
-                        {c.icon}
-                      </div>
-                      <p className="text-lg font-black text-zinc-900">{c.name}</p>
-                    </div>
-                    <p className="mt-3 text-sm text-zinc-500 leading-relaxed">{c.desc}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-
-          <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
-            {clients.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrentSlide(i)}
-                className={`h-1.5 transition-all duration-500 rounded-full ${
-                  i === currentSlide ? "w-8 bg-emerald-500" : "w-2 bg-zinc-200"
-                }`}
-                aria-label={`Go to client ${i + 1}`}
-              />
-            ))}
           </div>
         </div>
       </div>

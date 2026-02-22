@@ -128,7 +128,13 @@ export default function ClientsShowcase() {
                         <div
                           key={q.title}
                           className={`${base} pointer-events-none z-20 opacity-60 translate-y-8 scale-[0.98]`}
-                        />
+                          aria-hidden="true"
+                        >
+                          <p className="text-sm font-black text-zinc-900/80">{q.title}</p>
+                          <p className="mt-3 text-sm text-zinc-700/70 leading-relaxed line-clamp-3">
+                            {q.desc}
+                          </p>
+                        </div>
                       );
                     }
 
@@ -137,7 +143,13 @@ export default function ClientsShowcase() {
                         <div
                           key={q.title}
                           className={`${base} pointer-events-none z-10 opacity-30 -translate-y-8 scale-[0.96]`}
-                        />
+                          aria-hidden="true"
+                        >
+                          <p className="text-sm font-black text-zinc-900/70">{q.title}</p>
+                          <p className="mt-3 text-sm text-zinc-700/60 leading-relaxed line-clamp-2">
+                            {q.desc}
+                          </p>
+                        </div>
                       );
                     }
 
