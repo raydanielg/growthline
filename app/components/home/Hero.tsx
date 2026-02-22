@@ -95,9 +95,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* BOTTOM FADE TO WHITE - IMPROVED STYLE */}
-      <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white to-transparent z-20"></div>
-      <div className="absolute bottom-0 left-0 w-full h-px bg-zinc-100 z-20"></div>
     </section>
   );
 }
