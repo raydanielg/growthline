@@ -1,23 +1,30 @@
 export default function ContactInfo() {
   return (
-    <section className="rounded-3xl border border-black/10 bg-white p-8 dark:border-white/10 dark:bg-zinc-950">
-      <h2 className="text-xl font-semibold">Contact information</h2>
-      <div className="mt-4 space-y-3 text-sm text-zinc-600 dark:text-zinc-300">
+    <section className="rounded-[2rem] border border-zinc-100 bg-white p-8 shadow-[0_20px_60px_rgba(0,0,0,0.06)]">
+      <div className="flex items-end justify-between gap-6">
         <div>
-          <p className="font-semibold text-zinc-900 dark:text-zinc-100">Phone</p>
-          <p>+255 000 000 000</p>
+          <p className="text-[#0056b3] text-xs font-black uppercase tracking-[0.3em]">Details</p>
+          <h2 className="mt-3 text-xl sm:text-2xl font-black text-zinc-900">Contact information</h2>
         </div>
-        <div>
-          <p className="font-semibold text-zinc-900 dark:text-zinc-100">Email</p>
-          <p>info@company.com</p>
+        <div className="hidden sm:block h-1 w-16 rounded-full bg-gradient-to-r from-emerald-500 to-[#0056b3]" />
+      </div>
+
+      <div className="mt-8 grid gap-4 text-sm">
+        <div className="rounded-2xl border border-zinc-100 bg-zinc-50 p-5">
+          <p className="text-zinc-900 font-black">Phone</p>
+          <p className="mt-1 text-zinc-600">+255 000 000 000</p>
         </div>
-        <div>
-          <p className="font-semibold text-zinc-900 dark:text-zinc-100">Office</p>
-          <p>Dar es Salaam, Tanzania</p>
+        <div className="rounded-2xl border border-zinc-100 bg-zinc-50 p-5">
+          <p className="text-zinc-900 font-black">Email</p>
+          <p className="mt-1 text-zinc-600">info@company.com</p>
         </div>
-        <div>
-          <p className="font-semibold text-zinc-900 dark:text-zinc-100">Hours</p>
-          <p>Mon - Sat: 08:00 - 18:00</p>
+        <div className="rounded-2xl border border-zinc-100 bg-zinc-50 p-5">
+          <p className="text-zinc-900 font-black">Office</p>
+          <p className="mt-1 text-zinc-600">Dar es Salaam, Tanzania</p>
+        </div>
+        <div className="rounded-2xl border border-zinc-100 bg-zinc-50 p-5">
+          <p className="text-zinc-900 font-black">Hours</p>
+          <p className="mt-1 text-zinc-600">Mon - Sat: 08:00 - 18:00</p>
         </div>
       </div>
     </section>

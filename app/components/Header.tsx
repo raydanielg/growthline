@@ -76,33 +76,33 @@ export default function Header() {
 
             {/* SERVICES DROPDOWN */}
             <div className="group relative py-2">
-              <button
-                type="button"
+              <Link
+                href="/services"
                 className="relative inline-flex items-center gap-1 pb-2 hover:text-[#0056b3] transition-colors"
               >
                 Services
                 <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 group-hover:rotate-180 transition-transform duration-300"><path d="m6 9 6 6 6-6"/></svg>
                 <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-emerald-500 to-[#0056b3] transition-all duration-300 group-hover:w-full"></span>
-              </button>
+              </Link>
               <div className="invisible absolute left-0 top-full pt-2 w-60 opacity-0 translate-y-2 transition-all duration-300 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 z-50">
                 <div className="bg-white border border-zinc-100 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] overflow-hidden p-1.5">
-                  <Link href="/services" className="flex items-center px-4 py-2.5 text-[14px] text-zinc-700 hover:bg-zinc-50 hover:text-[#0056b3] rounded-lg transition-colors">Bulk Cargo</Link>
-                  <Link href="/services" className="flex items-center px-4 py-2.5 text-[14px] text-zinc-700 hover:bg-zinc-50 hover:text-[#0056b3] rounded-lg transition-colors">Equipment Rental</Link>
-                  <Link href="/services" className="flex items-center px-4 py-2.5 text-[14px] text-zinc-700 hover:bg-zinc-50 hover:text-[#0056b3] rounded-lg transition-colors">Water Supply</Link>
-                  <Link href="/services" className="flex items-center px-4 py-2.5 text-[14px] text-zinc-700 hover:bg-zinc-50 hover:text-[#0056b3] rounded-lg transition-colors">Project Logistics</Link>
+                  <Link href="/services#bulk-cargo" className="flex items-center px-4 py-2.5 text-[14px] text-zinc-700 hover:bg-zinc-50 hover:text-[#0056b3] rounded-lg transition-colors">Bulk Cargo</Link>
+                  <Link href="/services#equipment-rental" className="flex items-center px-4 py-2.5 text-[14px] text-zinc-700 hover:bg-zinc-50 hover:text-[#0056b3] rounded-lg transition-colors">Equipment Rental</Link>
+                  <Link href="/services#water-supply" className="flex items-center px-4 py-2.5 text-[14px] text-zinc-700 hover:bg-zinc-50 hover:text-[#0056b3] rounded-lg transition-colors">Water Supply</Link>
+                  <Link href="/services#project-logistics" className="flex items-center px-4 py-2.5 text-[14px] text-zinc-700 hover:bg-zinc-50 hover:text-[#0056b3] rounded-lg transition-colors">Project Logistics</Link>
                 </div>
               </div>
             </div>
 
-            <Link href="/services" className="hover:text-[#0056b3] transition-colors relative group py-2">
+            <Link href="/capacity" className="hover:text-[#0056b3] transition-colors relative group py-2">
               Capacity
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0056b3] transition-all group-hover:w-full"></span>
             </Link>
-            <Link href="/" className="hover:text-[#0056b3] transition-colors relative group py-2">
+            <Link href="/clients" className="hover:text-[#0056b3] transition-colors relative group py-2">
               Clients
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0056b3] transition-all group-hover:w-full"></span>
             </Link>
-            <Link href="/about" className="hover:text-[#0056b3] transition-colors relative group py-2">
+            <Link href="/certificates" className="hover:text-[#0056b3] transition-colors relative group py-2">
               Certificates
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0056b3] transition-all group-hover:w-full"></span>
             </Link>
@@ -144,16 +144,16 @@ export default function Header() {
               <div className="px-4 py-2">
                 <p className="text-[11px] font-bold text-zinc-400 uppercase tracking-wider mb-2">Services</p>
                 <div className="grid gap-1 pl-2 border-l border-zinc-100">
-                  <Link href="/services" onClick={() => setIsMobileMenuOpen(false)} className="px-3 py-2 text-sm text-zinc-600 hover:text-[#0056b3]">Bulk Cargo</Link>
-                  <Link href="/services" onClick={() => setIsMobileMenuOpen(false)} className="px-3 py-2 text-sm text-zinc-600 hover:text-[#0056b3]">Equipment Rental</Link>
-                  <Link href="/services" onClick={() => setIsMobileMenuOpen(false)} className="px-3 py-2 text-sm text-zinc-600 hover:text-[#0056b3]">Water Supply</Link>
-                  <Link href="/services" onClick={() => setIsMobileMenuOpen(false)} className="px-3 py-2 text-sm text-zinc-600 hover:text-[#0056b3]">Project Logistics</Link>
+                  <Link href="/services#bulk-cargo" onClick={() => setIsMobileMenuOpen(false)} className="px-3 py-2 text-sm text-zinc-600 hover:text-[#0056b3]">Bulk Cargo</Link>
+                  <Link href="/services#equipment-rental" onClick={() => setIsMobileMenuOpen(false)} className="px-3 py-2 text-sm text-zinc-600 hover:text-[#0056b3]">Equipment Rental</Link>
+                  <Link href="/services#water-supply" onClick={() => setIsMobileMenuOpen(false)} className="px-3 py-2 text-sm text-zinc-600 hover:text-[#0056b3]">Water Supply</Link>
+                  <Link href="/services#project-logistics" onClick={() => setIsMobileMenuOpen(false)} className="px-3 py-2 text-sm text-zinc-600 hover:text-[#0056b3]">Project Logistics</Link>
                 </div>
               </div>
 
-              <Link href="/services" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-sm font-semibold text-zinc-800 hover:bg-zinc-50 rounded-xl">Capacity</Link>
-              <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-sm font-semibold text-zinc-800 hover:bg-zinc-50 rounded-xl">Clients</Link>
-              <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-sm font-semibold text-zinc-800 hover:bg-zinc-50 rounded-xl">Certificates</Link>
+              <Link href="/capacity" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-sm font-semibold text-zinc-800 hover:bg-zinc-50 rounded-xl">Capacity</Link>
+              <Link href="/clients" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-sm font-semibold text-zinc-800 hover:bg-zinc-50 rounded-xl">Clients</Link>
+              <Link href="/certificates" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-sm font-semibold text-zinc-800 hover:bg-zinc-50 rounded-xl">Certificates</Link>
               <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-sm font-semibold text-zinc-800 hover:bg-zinc-50 rounded-xl text-[#0056b3]">Contact us</Link>
             </div>
           </div>
