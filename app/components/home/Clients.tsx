@@ -23,7 +23,7 @@ const clients: ClientItem[] = [
       </svg>
     ),
     accent: "text-emerald-600 bg-emerald-50",
-    image: "/46a71782-e4c9-415f-beee-8c2c0db48a62.JPG.jpeg",
+    image: "/trucksimages/DJI_0698.JPG",
   },
   {
     name: "Construction",
@@ -38,7 +38,7 @@ const clients: ClientItem[] = [
       </svg>
     ),
     accent: "text-[#0056b3] bg-blue-50",
-    image: "/yellow-trucks-machinery-lined-up-construction-site-excavators-bulldozers-cranes_1031438-354.jpg",
+    image: "/trucksimages/JAY_5514.JPG",
   },
   {
     name: "Energy",
@@ -49,7 +49,7 @@ const clients: ClientItem[] = [
       </svg>
     ),
     accent: "text-amber-600 bg-amber-50",
-    image: "/male-bus-driver-portrait_23-2151582632.jpg",
+    image: "/trucksimages/DJI_0607.JPG",
   },
   {
     name: "Manufacturing",
@@ -60,7 +60,7 @@ const clients: ClientItem[] = [
       </svg>
     ),
     accent: "text-purple-600 bg-purple-50",
-    image: "/construction-worker-portrait-with-hard-hat-trucks-background_1222783-31158.jpg",
+    image: "/trucksimages/JAY_5640.JPG",
   },
   {
     name: "Government",
@@ -76,7 +76,7 @@ const clients: ClientItem[] = [
       </svg>
     ),
     accent: "text-zinc-900 bg-zinc-100",
-    image: "/JAY_5613.JPG.jpeg",
+    image: "/trucksimages/DJI_0700.JPG",
   },
 ];
 

@@ -17,6 +17,11 @@ export default function ServicesHero() {
     { title: "Equipment", desc: "Rental & operators", href: "#equipment-rental" },
     { title: "Water supply", desc: "Routes & availability", href: "#water-supply" },
     { title: "Logistics", desc: "Planning & delivery", href: "#project-logistics" },
+    {
+      title: "Electrical",
+      desc: "Contractors & support",
+      href: "#electrical-contractors",
+    },
   ];
 
   const [currentImage, setCurrentImage] = useState(0);

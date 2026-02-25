@@ -7,6 +7,17 @@ import { useEffect, useRef, useState } from "react";
 export default function About() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [inView, setInView] = useState(false);
+  const collageImages = [
+    "/trucksimages/JAY_5469.JPG",
+    "/trucksimages/JAY_5514.JPG",
+    "/trucksimages/DJI_0698.JPG",
+    "/trucksimages/JAY_5585.JPG",
+    "/trucksimages/JAY_5640.JPG",
+    "/trucksimages/DJI_0607.JPG",
+    "/trucksimages/JAY_5459.JPG",
+    "/trucksimages/DJI_0700.JPG",
+  ];
+  const [collageStart, setCollageStart] = useState(0);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -22,6 +33,13 @@ export default function About() {
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      setCollageStart((i) => (i + 1) % collageImages.length);
+    }, 3500);
+    return () => clearInterval(t);
+  }, [collageImages.length]);
 
   return (
     <section ref={sectionRef} className="relative py-24 overflow-hidden bg-white">
@@ -44,19 +62,63 @@ export default function About() {
             }`}
           >
             <div className="absolute -inset-4 bg-emerald-500/10 rounded-[2rem] blur-2xl group-hover:bg-emerald-500/20 transition-all duration-700"></div>
-            <div className="relative rounded-[2rem] overflow-hidden border border-zinc-100 shadow-2xl">
-              <Image
-                src="/JAY_5469.JPG.jpeg"
-                alt="Growthline Team"
-                width={800}
-                height={600}
-                className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
-            {/* FLOATING STAT CARD */}
-            <div className="absolute -bottom-8 -right-8 bg-white p-8 rounded-2xl shadow-2xl border border-zinc-50 hidden md:block animate-bounce-slow">
-              <div className="text-4xl font-black text-emerald-600 mb-1">10+</div>
-              <div className="text-sm font-bold text-zinc-500 uppercase tracking-widest">Years of Excellence</div>
+            <div className="relative">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="relative overflow-hidden rounded-[2rem] border border-zinc-100 shadow-2xl aspect-[4/5]">
+                  <Image
+                    src={collageImages[collageStart % collageImages.length]}
+                    alt="Operations"
+                    fill
+                    className="object-cover transform transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 1024px) 45vw, 320px"
+                  />
+                </div>
+                <div className="relative overflow-hidden rounded-[2rem] border border-zinc-100 shadow-2xl aspect-[4/5]">
+                  <Image
+                    src={collageImages[(collageStart + 1) % collageImages.length]}
+                    alt="Fleet"
+                    fill
+                    className="object-cover transform transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 1024px) 45vw, 320px"
+                  />
+                </div>
+                <div className="relative overflow-hidden rounded-[2rem] border border-zinc-100 shadow-2xl aspect-[4/5]">
+                  <Image
+                    src={collageImages[(collageStart + 2) % collageImages.length]}
+                    alt="Port logistics"
+                    fill
+                    className="object-cover transform transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 1024px) 45vw, 320px"
+                  />
+                </div>
+                <div className="relative overflow-hidden rounded-[2rem] border border-zinc-100 shadow-2xl aspect-[4/5]">
+                  <Image
+                    src={collageImages[(collageStart + 3) % collageImages.length]}
+                    alt="Delivery"
+                    fill
+                    className="object-cover transform transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 1024px) 45vw, 320px"
+                  />
+                </div>
+              </div>
+
+              <div className="absolute -bottom-8 -left-8 hidden sm:block">
+                <div className="rounded-2xl border border-zinc-200 bg-white/90 backdrop-blur p-6 shadow-2xl">
+                  <div className="flex items-end gap-3">
+                    <div className="text-4xl font-black text-zinc-900">10+</div>
+                    <div className="pb-1 text-sm font-bold text-zinc-600">Years</div>
+                  </div>
+                  <div className="mt-2 text-[11px] font-black text-zinc-500 uppercase tracking-[0.22em]">
+                    Working experience
+                  </div>
+                </div>
+              </div>
+
+              <div className="pointer-events-none absolute -bottom-10 right-0 h-[90px] w-[250px] overflow-hidden">
+                <svg viewBox="0 0 250 90" className="h-full w-full" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M0,90 L250,20 L250,90 Z" fill="#dc2626" />
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -67,17 +129,25 @@ export default function About() {
             }`}
           >
             <div className="space-y-4">
-              <h2 className="text-emerald-600 font-bold uppercase tracking-[0.3em] text-sm">
-                About Growthline Limited
+              <h2 className="text-red-600 font-black uppercase tracking-[0.3em] text-xs">
+                About Us
               </h2>
               <h3 className="text-4xl sm:text-5xl font-black text-zinc-900 leading-tight">
-                Pioneering Excellence in <span className="text-[#0056b3]">Industrial Logistics</span>
+                We provide full range of <span className="text-[#0056b3]">Logistic services</span>
               </h3>
             </div>
             
-            <p className="text-lg text-zinc-600 leading-relaxed">
-              Founded on the principles of reliability and efficiency, Growthline Limited has emerged as a leader in providing comprehensive site support and logistics solutions across Tanzania and East Africa.
-            </p>
+            <div className="space-y-5">
+              <p className="text-lg text-zinc-700 leading-relaxed">
+                Growthline Limited is a trusted industrial logistics partner supporting demanding operations across Tanzania and East Africa. We combine disciplined coordination, reliable equipment, and clear communication to keep sites moving.
+              </p>
+              <p className="text-base text-zinc-600 leading-relaxed">
+                From port handling and heavy haulage to equipment rental and site support, our teams focus on safe execution, predictable delivery, and responsive service—backed by reporting you can rely on.
+              </p>
+              <p className="text-base text-zinc-600 leading-relaxed">
+                Our approach is built around planning, readiness, and strong HSE standards—so you reduce downtime, avoid surprises, and deliver on schedule.
+              </p>
+            </div>
 
             <div className="grid sm:grid-cols-2 gap-8">
               <div
@@ -113,12 +183,24 @@ export default function About() {
                 inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
             >
-              <Link
-                href="/about"
-                className="inline-flex h-14 items-center justify-center rounded-xl bg-zinc-900 px-8 text-base font-bold text-white hover:bg-zinc-800 transition-all active:scale-95 shadow-lg"
-              >
-                Discover Our Story
-              </Link>
+              <div className="text-red-600 text-lg font-black tracking-tight">
+                “Serving through Safety”
+              </div>
+
+              <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/about"
+                  className="inline-flex h-14 items-center justify-center rounded-none bg-zinc-900 px-8 text-sm font-black uppercase tracking-[0.14em] text-white hover:bg-zinc-800 transition-all active:scale-95 shadow-lg"
+                >
+                  Explore more
+                </Link>
+                <Link
+                  href="/profile"
+                  className="inline-flex h-14 items-center justify-center rounded-none border border-zinc-200 bg-white px-8 text-sm font-black uppercase tracking-[0.14em] text-zinc-900 hover:bg-zinc-50 transition-all active:scale-95"
+                >
+                  Company profile
+                </Link>
+              </div>
             </div>
           </div>
         </div>

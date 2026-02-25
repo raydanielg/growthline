@@ -5,6 +5,7 @@ import EquipmentRental from "./EquipmentRental";
 import WaterSupply from "./WaterSupply";
 import HeavyHaulage from "./HeavyHaulage";
 import ProjectLogistics from "./ProjectLogistics";
+import ElectricalContractors from "./ElectricalContractors";
 import { useEffect, useState } from "react";
 
 export default function AllServices() {
@@ -87,6 +88,15 @@ export default function AllServices() {
             style={{ transitionDelay: "400ms" }}
           >
             <HeavyHaulage />
+          </div>
+
+          <div
+            className={`transition-all duration-700 ease-out ${
+              mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+            style={{ transitionDelay: "500ms" }}
+          >
+            <ElectricalContractors />
           </div>
         </div>
       </div>
