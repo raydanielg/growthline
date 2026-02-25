@@ -1,6 +1,5 @@
 import ContactInfo from "../components/contact/ContactInfo";
 import ContactForm from "../components/contact/ContactForm";
-import Map from "../components/contact/Map";
 import ContactHero from "../components/contact/Hero";
 import NetworkBackground from "../components/ui/NetworkBackground";
 
@@ -40,7 +39,6 @@ export default function ContactPage() {
               </div>
               <div className="lg:col-span-5 space-y-8">
                 <ContactInfo />
-                <Map />
               </div>
             </div>
           </div>

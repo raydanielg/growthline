@@ -21,7 +21,7 @@ export default function ContactForm() {
     const text = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
     
     if (type === "whatsapp") {
-      const url = `https://wa.me/255712345678?text=${encodeURIComponent(text)}`;
+      const url = `https://wa.me/255712345678?text=${encodeURIComponent(`*New Project Request*\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`)}`;
       window.open(url, "_blank");
     } else {
       const mailto = `mailto:info@growthline.co.tz?subject=Project Request from ${name}&body=${encodeURIComponent(text)}`;
@@ -102,10 +102,14 @@ export default function ContactForm() {
                 className="flex items-center justify-between w-full p-6 border-2 border-zinc-100 hover:border-[#25D366] hover:bg-green-50 transition-all group"
               >
                 <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 bg-green-50 text-[#25D366] flex items-center justify-center group-hover:bg-green-100 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-14 8.38 8.38 0 0 1 3.8.9L21 3z"/></svg>
+                  <div className="h-12 w-12 bg-green-50 flex items-center justify-center group-hover:bg-[#25D366] transition-all duration-300">
+                    <img 
+                      src="/Whatsapp-Linear-32px.svg" 
+                      alt="WhatsApp" 
+                      className="w-7 h-7 transition-all duration-300 group-hover:brightness-0 group-hover:invert"
+                    />
                   </div>
-                  <span className="font-black text-zinc-900">WhatsApp</span>
+                  <span className="font-black text-zinc-900 uppercase tracking-tight">Official WhatsApp</span>
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-300 group-hover:text-[#25D366] group-hover:translate-x-1 transition-all"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </button>
@@ -115,10 +119,10 @@ export default function ContactForm() {
                 className="flex items-center justify-between w-full p-6 border-2 border-zinc-100 hover:border-[#0056b3] hover:bg-blue-50 transition-all group"
               >
                 <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 bg-blue-50 text-[#0056b3] flex items-center justify-center group-hover:bg-blue-100 transition-colors">
+                  <div className="h-12 w-12 bg-blue-50 text-[#0056b3] flex items-center justify-center group-hover:bg-[#0056b3] group-hover:text-white transition-all duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                   </div>
-                  <span className="font-black text-zinc-900">Email Hub</span>
+                  <span className="font-black text-zinc-900 uppercase tracking-tight">Email Hub</span>
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-300 group-hover:text-[#0056b3] group-hover:translate-x-1 transition-all"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </button>
