@@ -46,32 +46,32 @@ export default function ServicesHero() {
       </div>
 
       <div className="relative mx-auto w-full max-w-7xl px-6">
-        <div className="grid min-h-[85vh] items-center gap-10 py-20 lg:grid-cols-12">
+        <div className="grid min-h-[62vh] sm:min-h-[78vh] lg:min-h-[85vh] items-center gap-8 sm:gap-10 py-12 sm:py-16 lg:py-20 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <p className="text-white/80 text-xs font-black uppercase tracking-[0.35em]">
               Services
             </p>
-            <h1 className="mt-5 text-4xl sm:text-6xl font-black text-white leading-[1.05]">
+            <h1 className="mt-4 sm:mt-5 text-3xl sm:text-6xl font-black text-white leading-[1.05]">
               Industrial services built for
               <span className="block bg-gradient-to-r from-emerald-300 via-white to-sky-200 bg-clip-text text-transparent">
                 reliability and speed.
               </span>
             </h1>
-            <p className="mt-6 max-w-2xl text-white/80 text-base sm:text-lg leading-relaxed">
+            <p className="mt-4 sm:mt-6 max-w-2xl text-white/80 text-sm sm:text-lg leading-relaxed">
               From bulk cargo handling to equipment rental, water supply, and project logistics—
               Growthline delivers safety-first execution, strong coordination, and responsive support.
             </p>
 
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <div className="mt-7 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Link
                 href="#contact"
-                className="inline-flex h-14 items-center justify-center rounded-2xl bg-white px-8 text-sm font-black text-zinc-900 hover:bg-emerald-400 hover:text-black transition-all active:scale-95 shadow-2xl shadow-black/30"
+                className="inline-flex h-11 sm:h-14 items-center justify-center rounded-xl sm:rounded-2xl bg-white px-6 sm:px-8 text-[13px] sm:text-sm font-black text-zinc-900 hover:bg-emerald-400 hover:text-black transition-all active:scale-95 shadow-2xl shadow-black/30"
               >
                 Request a quote
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex h-14 items-center justify-center rounded-2xl border border-white/25 bg-white/10 backdrop-blur px-8 text-sm font-black text-white hover:bg-white/15 transition-all active:scale-95"
+                className="inline-flex h-11 sm:h-14 items-center justify-center rounded-xl sm:rounded-2xl border border-white/25 bg-white/10 backdrop-blur px-6 sm:px-8 text-[13px] sm:text-sm font-black text-white hover:bg-white/15 transition-all active:scale-95"
               >
                 Contact us
               </Link>
@@ -79,16 +79,16 @@ export default function ServicesHero() {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="rounded-[2rem] border border-white/15 bg-white/10 backdrop-blur p-6 sm:p-8 shadow-2xl shadow-black/30">
+            <div className="rounded-[1.5rem] sm:rounded-[2rem] border border-white/15 bg-white/10 backdrop-blur p-4 sm:p-8 shadow-2xl shadow-black/30">
               <p className="text-xs font-black uppercase tracking-[0.3em] text-white/70">
                 Explore
               </p>
-              <div className="mt-6 grid grid-cols-2 gap-4">
+              <div className="mt-4 sm:mt-6 grid grid-cols-2 gap-3 sm:gap-4">
                 {highlights.map((h) => (
                   <a
                     key={h.title}
                     href={h.href}
-                    className="group rounded-2xl border border-white/10 bg-white/10 p-5 hover:bg-white/15 transition-all"
+                    className="group rounded-2xl border border-white/10 bg-white/10 p-4 sm:p-5 hover:bg-white/15 transition-all"
                   >
                     <p className="text-sm font-black text-white">{h.title}</p>
                     <p className="mt-2 text-xs text-white/70">{h.desc}</p>
