@@ -30,11 +30,11 @@ export default function CTASection() {
                 <div className="shrink-0">
                   <div className="relative">
                     <div className="pointer-events-none absolute inset-0 -z-10">
-                      <span className="absolute inset-0 rounded-full bg-red-600/35 ring-1 ring-red-400/40 animate-ripple" />
-                      <span className="absolute inset-0 rounded-full bg-red-600/25 ring-1 ring-red-300/30 animate-ripple [animation-delay:700ms]" />
+                      <span className="absolute inset-0 rounded-full bg-[#0056b3]/35 ring-1 ring-[#0056b3]/40 animate-ripple" />
+                      <span className="absolute inset-0 rounded-full bg-[#0056b3]/25 ring-1 ring-[#0056b3]/30 animate-ripple [animation-delay:700ms]" />
                     </div>
 
-                    <div className="relative h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-red-600 shadow-2xl shadow-black/40 grid place-items-center">
+                    <div className="relative h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-[#0056b3] shadow-2xl shadow-black/40 grid place-items-center">
                       <div className="h-0 w-0 border-y-[10px] border-y-transparent border-l-[16px] border-l-white translate-x-0.5" />
                     </div>
                   </div>

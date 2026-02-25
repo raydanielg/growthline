@@ -22,7 +22,7 @@ const clients: ClientItem[] = [
         <path d="M9 21v-8h6v8" />
       </svg>
     ),
-    accent: "text-emerald-600 bg-emerald-50",
+    accent: "text-[#0056b3] bg-blue-50",
     image: "/trucksimages/DJI_0698.JPG",
   },
   {
@@ -48,7 +48,7 @@ const clients: ClientItem[] = [
         <path d="M13 2 3 14h9l-1 8 10-12h-9z" />
       </svg>
     ),
-    accent: "text-amber-600 bg-amber-50",
+    accent: "text-[#0056b3] bg-blue-50",
     image: "/trucksimages/DJI_0607.JPG",
   },
   {
@@ -59,7 +59,7 @@ const clients: ClientItem[] = [
         <path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 4V8l-7 4V4H4a2 2 0 0 0-2 2z" />
       </svg>
     ),
-    accent: "text-purple-600 bg-purple-50",
+    accent: "text-[#0056b3] bg-blue-50",
     image: "/trucksimages/JAY_5640.JPG",
   },
   {
@@ -110,7 +110,7 @@ export default function Clients() {
     <section className="bg-white py-20 relative overflow-hidden">
       <div className="mx-auto w-full max-w-7xl px-6">
         <div className="flex flex-col items-center text-center mb-14 space-y-4">
-          <h2 className="text-emerald-600 font-bold uppercase tracking-[0.2em] text-xs">
+          <h2 className="text-[#0056b3] font-bold uppercase tracking-[0.2em] text-xs">
             Trusted By
           </h2>
           <h3 className="text-3xl sm:text-4xl font-black text-zinc-900">
@@ -131,7 +131,7 @@ export default function Clients() {
               tabIndex={0}
               aria-label="Change industry images"
             >
-              <div className="absolute -top-10 left-10 h-24 w-24 rounded-full bg-emerald-500/20 blur-2xl" />
+              <div className="absolute -top-10 left-10 h-24 w-24 rounded-full bg-[#0056b3]/20 blur-2xl" />
               <div className="absolute -bottom-10 right-10 h-28 w-28 rounded-full bg-[#0056b3]/20 blur-2xl" />
 
               <div className="absolute inset-0 opacity-[0.06]">
@@ -191,7 +191,7 @@ export default function Clients() {
                     setCurrentSlide(i);
                   }}
                   className={`h-1.5 transition-all duration-500 rounded-full ${
-                    i === currentSlide ? "w-8 bg-emerald-500" : "w-2 bg-zinc-200"
+                    i === currentSlide ? "w-8 bg-[#0056b3]" : "w-2 bg-zinc-200"
                   }`}
                   aria-label={`Go to industry ${i + 1}`}
                 />
@@ -234,7 +234,7 @@ export default function Clients() {
                       key={t}
                       className="flex items-start gap-3 rounded-2xl border border-zinc-100 bg-white/70 backdrop-blur px-5 py-4 shadow-sm"
                     >
-                      <div className="mt-1.5 h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,1)]" />
+                      <div className="mt-1.5 h-2 w-2 rounded-full bg-[#0056b3] shadow-[0_0_10px_rgba(0,86,179,0.55)]" />
                       <p className="text-sm font-bold text-zinc-700 leading-relaxed">{t}</p>
                     </div>
                   ))}

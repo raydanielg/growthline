@@ -44,9 +44,9 @@ export default function About() {
   return (
     <section ref={sectionRef} className="relative py-24 overflow-hidden bg-white">
       {/* BACKGROUND IMAGE WITH LOW OPACITY */}
-      <div className="absolute inset-0 z-0 opacity-100">
+      <div className="absolute inset-0 z-0 opacity-[0.18]">
         <Image
-          src="/6amMart-Lines-1024x362.webp"
+          src="/dotted-map.png"
           alt="Background Pattern"
           fill
           className="object-cover"
@@ -61,7 +61,7 @@ export default function About() {
               inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
-            <div className="absolute -inset-4 bg-emerald-500/10 rounded-[2rem] blur-2xl group-hover:bg-emerald-500/20 transition-all duration-700"></div>
+            <div className="absolute -inset-4 bg-[#0056b3]/10 rounded-[2rem] blur-2xl group-hover:bg-[#0056b3]/20 transition-all duration-700"></div>
             <div className="relative">
               <div className="grid grid-cols-2 gap-4">
                 <div className="relative overflow-hidden rounded-[2rem] border border-zinc-100 shadow-2xl aspect-[4/5]">
@@ -116,7 +116,7 @@ export default function About() {
 
               <div className="pointer-events-none absolute -bottom-10 right-0 h-[90px] w-[250px] overflow-hidden">
                 <svg viewBox="0 0 250 90" className="h-full w-full" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M0,90 L250,20 L250,90 Z" fill="#dc2626" />
+                  <path d="M0,90 L250,20 L250,90 Z" fill="#0056b3" />
                 </svg>
               </div>
             </div>
@@ -129,7 +129,7 @@ export default function About() {
             }`}
           >
             <div className="space-y-4">
-              <h2 className="text-red-600 font-black uppercase tracking-[0.3em] text-xs">
+              <h2 className="text-[#0056b3] font-black uppercase tracking-[0.3em] text-xs">
                 About Us
               </h2>
               <h3 className="text-4xl sm:text-5xl font-black text-zinc-900 leading-tight">
@@ -155,7 +155,7 @@ export default function About() {
                   inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
               >
-                <div className="flex-shrink-0 w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600">
+                <div className="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-[#0056b3]">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
                 </div>
                 <div>
@@ -183,7 +183,7 @@ export default function About() {
                 inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
             >
-              <div className="text-red-600 text-lg font-black tracking-tight">
+              <div className="text-[#0056b3] text-lg font-black tracking-tight">
                 “Serving through Safety”
               </div>
 

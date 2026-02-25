@@ -6,7 +6,7 @@ export default function WhyChooseUs() {
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
       ),
-      accent: "bg-emerald-600",
+      accent: "bg-[#0056b3]",
     },
     {
       title: "Reliable fleet & uptime",
@@ -22,7 +22,7 @@ export default function WhyChooseUs() {
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/><path d="M7 8h10"/><path d="M7 12h6"/></svg>
       ),
-      accent: "bg-red-600",
+      accent: "bg-[#0056b3]",
     },
     {
       title: "Project-ready scale",
@@ -30,7 +30,7 @@ export default function WhyChooseUs() {
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M12 22V12"/><path d="M12 12 3.5 7.5"/><path d="M12 12 20.5 7.5"/></svg>
       ),
-      accent: "bg-zinc-900",
+      accent: "bg-[#0056b3]",
     },
   ];
 
@@ -38,7 +38,7 @@ export default function WhyChooseUs() {
     <section className="relative bg-white py-20 overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-zinc-50 via-white to-white" />
-        <div className="absolute -top-40 -left-28 h-80 w-80 rounded-full bg-emerald-500/10 blur-3xl" />
+        <div className="absolute -top-40 -left-28 h-80 w-80 rounded-full bg-[#0056b3]/10 blur-3xl" />
         <div className="absolute -bottom-52 -right-40 h-[520px] w-[520px] rounded-full bg-[#0056b3]/10 blur-3xl" />
         <div className="absolute inset-0 opacity-[0.05]">
           <div
@@ -55,7 +55,7 @@ export default function WhyChooseUs() {
       <div className="relative mx-auto w-full max-w-7xl px-6">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-6">
-            <p className="text-emerald-600 text-xs font-black uppercase tracking-[0.3em]">
+            <p className="text-[#0056b3] text-xs font-black uppercase tracking-[0.3em]">
               Why choose us
             </p>
             <h2 className="mt-4 text-3xl sm:text-4xl font-black text-zinc-900 leading-tight">
@@ -81,7 +81,7 @@ export default function WhyChooseUs() {
                 <div className={`h-12 w-12 rounded-2xl ${it.accent} text-white grid place-items-center shadow-sm`}>
                   {it.icon}
                 </div>
-                <div className="h-0.5 w-0 bg-gradient-to-r from-emerald-500 to-[#0056b3] transition-all duration-700 group-hover:w-10" />
+                <div className="h-0.5 w-0 bg-gradient-to-r from-[#0056b3] to-sky-300 transition-all duration-700 group-hover:w-10" />
               </div>
               <p className="mt-5 text-base font-black text-zinc-900">{it.title}</p>
               <p className="mt-3 text-sm text-zinc-600 leading-relaxed">{it.desc}</p>

@@ -91,7 +91,7 @@ export default function Hero() {
           <div className="flex justify-start animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
             <Link
               href="/about"
-              className="inline-flex h-11 sm:h-12 items-center justify-center rounded-xl bg-emerald-600 px-6 sm:px-7 text-[13px] sm:text-sm font-bold text-white hover:bg-emerald-700 transition-all shadow-xl shadow-emerald-900/30 active:scale-95 whitespace-nowrap"
+              className="inline-flex h-11 sm:h-12 items-center justify-center rounded-xl bg-[#0056b3] px-6 sm:px-7 text-[13px] sm:text-sm font-bold text-white hover:bg-[#004999] transition-all shadow-xl shadow-[#001b3d]/35 active:scale-95 whitespace-nowrap"
             >
               Learn More
             </Link>

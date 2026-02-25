@@ -2,16 +2,33 @@
 
 import Image from "next/image";
 
-const placeholders = Array.from({ length: 10 }).map((_, i) => ({
-  id: i,
-}));
+const logos = [
+  "67.png",
+  "Kings-Builders-Logo.png",
+  "Starpeco-Logo-Bitumen-Dar-es-Salaam-Tanzania-East-Africa-Mashariki.png",
+  "finallogo.png",
+  "logo-011.png",
+  "logo-blue.svg",
+  "logo.svg",
+  "logo_302x312.png",
+  "screenshot-2019-04-26-at-15.35.47-200x74.png",
+  "tarura.png",
+];
+
+function toAlt(filename: string) {
+  return filename
+    .replace(/\.[^/.]+$/, "")
+    .replace(/[-_]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
 
 export default function LogoShowcase() {
   return (
     <section className="relative bg-white py-20 overflow-hidden">
       <div className="mx-auto w-full max-w-7xl px-6">
         <div className="flex flex-col items-center text-center mb-10 space-y-4">
-          <p className="text-emerald-600 font-bold uppercase tracking-[0.2em] text-xs">
+          <p className="text-[#0056b3] font-bold uppercase tracking-[0.2em] text-xs">
             Trusted partners
           </p>
           <h3 className="text-2xl sm:text-3xl font-black text-zinc-900">
@@ -26,20 +43,29 @@ export default function LogoShowcase() {
           <div className="overflow-hidden rounded-[2rem] border border-zinc-100 bg-white shadow-2xl shadow-zinc-200/40">
             <div className="px-6 py-8 sm:px-10 sm:py-10">
               <div className="marquee flex items-center gap-10 sm:gap-14">
-                {[...placeholders, ...placeholders].map((p, idx) => (
+                {[...logos, ...logos].map((logo, idx) => (
                   <div
-                    key={`${p.id}-${idx}`}
+                    key={`${logo}-${idx}`}
                     className="flex h-14 w-32 sm:h-16 sm:w-40 items-center justify-center rounded-xl border border-zinc-100 bg-zinc-50/40"
                   >
                     <div className="relative h-7 w-24 sm:h-8 sm:w-28 opacity-70">
-                      <Image
-                        src="/logo.png"
-                        alt=""
-                        fill
-                        className="object-contain"
-                        sizes="120px"
-                        priority={false}
-                      />
+                      {logo.endsWith(".svg") ? (
+                        <img
+                          src={`/clients/${logo}`}
+                          alt={toAlt(logo)}
+                          className="h-full w-full object-contain"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <Image
+                          src={`/clients/${logo}`}
+                          alt={toAlt(logo)}
+                          fill
+                          className="object-contain"
+                          sizes="120px"
+                          priority={false}
+                        />
+                      )}
                     </div>
                   </div>
                 ))}
