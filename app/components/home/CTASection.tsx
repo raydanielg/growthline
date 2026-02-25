@@ -1,68 +1,58 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
 export default function CTASection() {
   return (
-    <section className="py-24 bg-white">
-      <div className="mx-auto w-full max-w-7xl px-6">
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-zinc-100 bg-white shadow-2xl shadow-zinc-200/40">
-          <div className="grid lg:grid-cols-2">
-            <div className="relative min-h-[260px] lg:min-h-[420px]">
-              <Image
-                src="/yellow-trucks-machinery-lined-up-construction-site-excavators-bulldozers-cranes_1031438-354.jpg"
-                alt="Need a quote"
-                fill
-                className="object-cover"
-                priority={false}
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-black/70 via-black/30 to-transparent" />
-              <div className="absolute bottom-8 left-8 right-8">
-                <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.25em] text-white backdrop-blur-md">
-                  <span className="h-2 w-2 rounded-full bg-emerald-400" />
-                  Fast response
-                </div>
-              </div>
-            </div>
+    <section className="relative bg-white">
+      <div className="w-full px-0 py-14 sm:py-20">
+        <div className="relative w-full overflow-hidden rounded-none border-y border-zinc-100 bg-black shadow-2xl shadow-zinc-200/40">
+          <div className="absolute inset-0">
+            <Image
+              src="/trucksimages/JAY_5514.JPG"
+              alt="Contact us background"
+              fill
+              className="object-cover"
+              priority={false}
+            />
+            <div className="absolute inset-0 bg-black/55" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/45 to-black/20" />
+          </div>
 
-            <div className="p-10 sm:p-14 lg:p-16">
-              <div className="max-w-xl space-y-6">
-                <div className="space-y-3">
-                  <p className="text-emerald-600 text-xs font-black uppercase tracking-[0.3em]">
-                    Need a quote
-                  </p>
-                  <h2 className="text-3xl sm:text-4xl font-black text-zinc-900 leading-tight">
-                    Let’s plan your next
-                    <span className="text-[#0056b3]"> project</span>
-                  </h2>
-                  <p className="text-zinc-600 text-base sm:text-lg leading-relaxed">
-                    Share your requirements and timelines. Our team will respond quickly
-                    with a tailored solution and a competitive quote.
-                  </p>
-                </div>
+          <div className="relative px-6 py-14 sm:px-10 sm:py-20 lg:px-16">
+            <div className="max-w-3xl">
+              <p className="text-[11px] sm:text-xs font-black uppercase tracking-[0.35em] text-white/80">
+                Get in touch with us anytime
+              </p>
 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link
-                    href="/contact"
-                    className="inline-flex h-14 items-center justify-center rounded-2xl bg-emerald-600 px-8 text-sm font-black text-white hover:bg-emerald-700 transition-all shadow-xl shadow-emerald-900/20 active:scale-95"
-                  >
-                    Request a quote
-                  </Link>
-                  <Link
-                    href="/services"
-                    className="inline-flex h-14 items-center justify-center rounded-2xl border border-zinc-200 bg-white px-8 text-sm font-black text-zinc-900 hover:bg-zinc-50 transition-all active:scale-95"
-                  >
-                    View services
-                  </Link>
-                </div>
+              <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10">
+                <div className="shrink-0">
+                  <div className="relative">
+                    <div className="pointer-events-none absolute inset-0 -z-10">
+                      <span className="absolute inset-0 rounded-full bg-red-600/35 ring-1 ring-red-400/40 animate-ripple" />
+                      <span className="absolute inset-0 rounded-full bg-red-600/25 ring-1 ring-red-300/30 animate-ripple [animation-delay:700ms]" />
+                    </div>
 
-                <div className="pt-2 grid grid-cols-2 gap-4">
-                  <div className="rounded-2xl bg-zinc-50 border border-zinc-100 p-5">
-                    <p className="text-sm font-black text-zinc-900">Email</p>
-                    <p className="text-sm text-zinc-600">info@growthline.co.tz</p>
+                    <div className="relative h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-red-600 shadow-2xl shadow-black/40 grid place-items-center">
+                      <div className="h-0 w-0 border-y-[10px] border-y-transparent border-l-[16px] border-l-white translate-x-0.5" />
+                    </div>
                   </div>
-                  <div className="rounded-2xl bg-zinc-50 border border-zinc-100 p-5">
-                    <p className="text-sm font-black text-zinc-900">Call</p>
-                    <p className="text-sm text-zinc-600">+255 000 000 000</p>
+                </div>
+
+                <div>
+                  <h2 className="text-3xl sm:text-5xl font-black text-white leading-[1.05]">
+                    Looking for the best
+                    <span className="block">logistics transport service?</span>
+                  </h2>
+
+                  <div className="mt-7">
+                    <Link
+                      href="/contact"
+                      className="inline-flex h-12 items-center justify-center bg-black px-7 text-[12px] font-black uppercase tracking-[0.18em] text-white shadow-lg hover:bg-zinc-900 transition-colors active:scale-95"
+                    >
+                      Contact us
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -70,6 +60,28 @@ export default function CTASection() {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        .animate-ripple {
+          animation: ripple 2.2s ease-out infinite;
+          transform-origin: center;
+        }
+        @keyframes ripple {
+          0% {
+            transform: scale(1);
+            opacity: 0.55;
+          }
+          100% {
+            transform: scale(1.9);
+            opacity: 0;
+          }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .animate-ripple {
+            animation: none;
+          }
+        }
+      `}</style>
     </section>
   );
 }
