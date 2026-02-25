@@ -28,7 +28,7 @@ export default function ProfileTeam() {
     <section id="team" className="bg-white py-20">
       <div className="mx-auto w-full max-w-7xl px-6">
         <div className="flex flex-col items-center text-center space-y-4">
-          <p className="text-emerald-600 text-xs font-black uppercase tracking-[0.3em]">
+          <p className="text-[#0056b3] text-xs font-black uppercase tracking-[0.3em]">
             Team
           </p>
           <h2 className="text-3xl sm:text-4xl font-black text-zinc-900">
@@ -43,7 +43,7 @@ export default function ProfileTeam() {
           {members.map((m) => (
             <div
               key={m.name}
-              className="group overflow-hidden rounded-[2rem] border border-zinc-100 bg-white shadow-sm hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-700"
+              className="group overflow-hidden border border-zinc-100 bg-white shadow-sm hover:shadow-2xl hover:shadow-zinc-200/50 transition-all duration-700"
             >
               <div className="relative h-48">
                 <Image
@@ -57,10 +57,6 @@ export default function ProfileTeam() {
               <div className="p-6">
                 <p className="text-base font-black text-zinc-900">{m.name}</p>
                 <p className="mt-2 text-sm text-zinc-600">{m.role}</p>
-                <div className="mt-5 flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.25em] text-zinc-400">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                  Growthline
-                </div>
               </div>
             </div>
           ))}

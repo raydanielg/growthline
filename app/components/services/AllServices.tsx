@@ -17,32 +17,33 @@ export default function AllServices() {
   }, []);
 
   return (
-    <section className="relative bg-white pb-20 overflow-hidden">
+    <section className="relative bg-white pb-24 overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-emerald-50/60 via-white to-white" />
-        <div className="absolute -top-40 -left-24 h-80 w-80 rounded-full bg-emerald-500/10 blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-50/40 via-white to-white" />
+        <div className="absolute -top-40 -left-24 h-80 w-80 rounded-full bg-[#0056b3]/5 blur-3xl" />
         <div className="absolute -bottom-52 -right-40 h-[520px] w-[520px] rounded-full bg-[#0056b3]/10 blur-3xl" />
-        <div className="absolute inset-0 opacity-[0.05]">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 1px 1px, rgba(0,0,0,0.9) 1px, rgba(0,0,0,0) 0)",
-              backgroundSize: "22px 22px",
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+          <div 
+            className="absolute inset-0" 
+            style={{ 
+              backgroundImage: "url('/icon-wave-line.png')",
+              backgroundSize: "400px auto",
+              backgroundRepeat: "repeat" 
             }}
           />
         </div>
       </div>
 
       <div className="relative mx-auto w-full max-w-7xl px-6">
-        <div className="mb-10">
-          <p className="text-emerald-600 text-xs font-black uppercase tracking-[0.3em]">
+        <div className="mb-12">
+          <p className="text-[#0056b3] text-xs font-black uppercase tracking-[0.4em]">
             What we do
           </p>
-          <h2 className="mt-4 text-3xl sm:text-4xl font-black text-zinc-900">
-            Core services that keep sites running
+          <h2 className="mt-6 text-4xl sm:text-5xl font-black text-zinc-900 leading-[1.1]">
+            Core services that keep
+            <span className="block text-[#0056b3]">sites running</span>
           </h2>
-          <p className="mt-4 max-w-2xl text-zinc-600 text-base sm:text-lg leading-relaxed">
+          <p className="mt-6 max-w-2xl text-zinc-600 text-base sm:text-lg leading-relaxed">
             Designed for reliability, safety, and speed—supported by responsive
             communication and clear reporting.
           </p>

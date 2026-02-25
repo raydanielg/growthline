@@ -1,30 +1,34 @@
 export default function ContactInfo() {
   return (
-    <section className="rounded-[2rem] border border-zinc-100 bg-white p-8 shadow-[0_20px_60px_rgba(0,0,0,0.06)]">
+    <section className="relative border border-zinc-100 bg-white p-10 shadow-2xl shadow-zinc-200/60 overflow-hidden">
+      <div className="absolute top-0 left-0 h-1 w-full bg-[#0056b3]" />
       <div className="flex items-end justify-between gap-6">
         <div>
-          <p className="text-[#0056b3] text-xs font-black uppercase tracking-[0.3em]">Details</p>
-          <h2 className="mt-3 text-xl sm:text-2xl font-black text-zinc-900">Contact information</h2>
+          <p className="text-[#0056b3] text-xs font-black uppercase tracking-[0.4em]">Details</p>
+          <h2 className="mt-4 text-2xl font-black text-zinc-900">Contact <br/>information</h2>
         </div>
-        <div className="hidden sm:block h-1 w-16 rounded-full bg-gradient-to-r from-emerald-500 to-[#0056b3]" />
       </div>
 
-      <div className="mt-8 grid gap-4 text-sm">
-        <div className="rounded-2xl border border-zinc-100 bg-zinc-50 p-5">
-          <p className="text-zinc-900 font-black">Phone</p>
-          <p className="mt-1 text-zinc-600">+255 000 000 000</p>
+      <div className="mt-10 grid gap-4 text-sm">
+        <div className="group relative border border-zinc-100 bg-zinc-50/50 p-6 transition-all hover:bg-white hover:shadow-lg">
+          <div className="absolute top-0 left-0 w-1 h-0 bg-[#0056b3] transition-all group-hover:h-full" />
+          <p className="text-xs font-black text-zinc-400 uppercase tracking-widest">Phone</p>
+          <p className="mt-2 text-base font-bold text-zinc-900">+255 712 345 678</p>
         </div>
-        <div className="rounded-2xl border border-zinc-100 bg-zinc-50 p-5">
-          <p className="text-zinc-900 font-black">Email</p>
-          <p className="mt-1 text-zinc-600">info@company.com</p>
+        <div className="group relative border border-zinc-100 bg-zinc-50/50 p-6 transition-all hover:bg-white hover:shadow-lg">
+          <div className="absolute top-0 left-0 w-1 h-0 bg-[#0056b3] transition-all group-hover:h-full" />
+          <p className="text-xs font-black text-zinc-400 uppercase tracking-widest">Email</p>
+          <p className="mt-2 text-base font-bold text-zinc-900">info@growthline.co.tz</p>
         </div>
-        <div className="rounded-2xl border border-zinc-100 bg-zinc-50 p-5">
-          <p className="text-zinc-900 font-black">Office</p>
-          <p className="mt-1 text-zinc-600">Dar es Salaam, Tanzania</p>
+        <div className="group relative border border-zinc-100 bg-zinc-50/50 p-6 transition-all hover:bg-white hover:shadow-lg">
+          <div className="absolute top-0 left-0 w-1 h-0 bg-[#0056b3] transition-all group-hover:h-full" />
+          <p className="text-xs font-black text-zinc-400 uppercase tracking-widest">Office</p>
+          <p className="mt-2 text-base font-bold text-zinc-900">Dar es Salaam, Tanzania</p>
         </div>
-        <div className="rounded-2xl border border-zinc-100 bg-zinc-50 p-5">
-          <p className="text-zinc-900 font-black">Hours</p>
-          <p className="mt-1 text-zinc-600">Mon - Sat: 08:00 - 18:00</p>
+        <div className="group relative border border-zinc-100 bg-zinc-50/50 p-6 transition-all hover:bg-white hover:shadow-lg">
+          <div className="absolute top-0 left-0 w-1 h-0 bg-[#0056b3] transition-all group-hover:h-full" />
+          <p className="text-xs font-black text-zinc-400 uppercase tracking-widest">Hours</p>
+          <p className="mt-2 text-base font-bold text-zinc-900">Mon - Sat: 08:00 - 18:00</p>
         </div>
       </div>
     </section>
