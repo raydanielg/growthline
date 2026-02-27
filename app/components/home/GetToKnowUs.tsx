@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { Play, X } from "lucide-react";
 
 const mainImages = [
   "/trucksimages/JAY_5449.JPG",
@@ -7,15 +10,19 @@ const mainImages = [
   "/trucksimages/JAY_5491.JPG",
   "/trucksimages/JAY_5590.JPG",
   "/trucksimages/JAY_5606.JPG",
+  "/WhatsApp Image 2026-02-26 at 23.59.59.jpeg",
+  "/WhatsApp Image 2026-02-27 at 00.00.49.jpeg",
 ];
 
 const secondaryImages = [
+  "/WhatsApp Image 2026-02-27 at 00.00.49.jpeg",
   "/trucksimages/DJI_0607.JPG",
   "/trucksimages/JAY_5469.JPG",
 ];
 
 export default function GetToKnowUs() {
   const [currentIdx, setCurrentIdx] = useState(0);
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -26,6 +33,26 @@ export default function GetToKnowUs() {
 
   return (
     <section className="relative bg-zinc-100 py-20 overflow-hidden">
+      {/* Video Modal */}
+      {isVideoOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm animate-in fade-in duration-300">
+          <button 
+            onClick={() => setIsVideoOpen(false)}
+            className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-[110]"
+          >
+            <X size={32} />
+          </button>
+          <div className="relative w-full max-w-5xl aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+            <video 
+              src="/myvideo.mp4" 
+              autoPlay 
+              controls 
+              className="w-full h-full object-contain"
+            />
+          </div>
+        </div>
+      )}
+
       <div className="mx-auto w-full max-w-7xl px-6">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
           <div className="relative lg:col-span-6">
@@ -79,10 +106,14 @@ export default function GetToKnowUs() {
                 </div>
               </div>
 
-              <div className="absolute bottom-12 right-8 hidden sm:block">
-                <div className="h-14 w-14 rounded-full bg-[#0056b3] shadow-2xl shadow-black/30 grid place-items-center">
-                  <div className="h-0 w-0 border-y-[8px] border-y-transparent border-l-[12px] border-l-white translate-x-0.5" />
-                </div>
+              <div className="absolute bottom-12 right-8 hidden sm:block z-40">
+                <button 
+                  onClick={() => setIsVideoOpen(true)}
+                  className="group/play relative h-16 w-16 rounded-full bg-[#0056b3] shadow-2xl shadow-black/30 flex items-center justify-center hover:scale-110 transition-transform active:scale-95"
+                >
+                  <div className="absolute inset-0 rounded-full bg-[#0056b3] animate-ping opacity-20" />
+                  <Play className="fill-white text-white translate-x-0.5" size={24} />
+                </button>
               </div>
 
               <div className="pointer-events-none absolute -bottom-10 right-8 h-20 w-24 overflow-hidden">

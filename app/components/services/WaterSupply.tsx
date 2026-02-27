@@ -15,8 +15,8 @@ export default function WaterSupply() {
         </div>
       </div>
       <p className="mt-6 text-zinc-500 leading-relaxed font-medium">
-        Kutoa vifaa vya maji, dust suppression, and operational water delivery. 
-        Reliable bowser services with consistent availability and planned routes.
+        Comprehensive water equipment supply, dust suppression, and industrial water delivery. 
+        Professional bowser services with high-capacity tanks and planned delivery routes.
       </p>
     </section>
   );
