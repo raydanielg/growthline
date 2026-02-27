@@ -97,28 +97,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      <div className="pointer-events-none absolute bottom-0 left-0 w-full">
-        <svg
-          viewBox="0 0 1440 120"
-          className="block h-[64px] w-full sm:h-[88px]"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M0,78 C180,108 420,118 720,104 C1030,90 1240,60 1440,32 L1440,120 L0,120 Z"
-            fill="#f4f4f5"
-          />
-          <path
-            d="M0,78 C180,108 420,118 720,104 C1030,90 1240,60 1440,32"
-            fill="none"
-            stroke="rgba(0,0,0,0.14)"
-            strokeWidth="2"
-            strokeDasharray="1 10"
-            strokeLinecap="round"
-          />
-        </svg>
-      </div>
     </section>
   );
 }
