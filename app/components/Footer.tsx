@@ -136,12 +136,12 @@ export default function Footer() {
               <span className="mt-2 block h-0.5 w-10 rounded-full bg-gradient-to-r from-emerald-500 to-[#0056b3]"></span>
             </div>
             <div className="space-y-3 text-sm text-zinc-300">
-              <a href="mailto:info@growthline.co.tz" className="flex items-center gap-2 hover:text-emerald-300 transition-colors">
+              <a href="mailto:info@growthlinelogistics.co.tz" className="flex items-center gap-2 hover:text-emerald-300 transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <rect width="20" height="16" x="2" y="4" rx="2" />
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                 </svg>
-                info@growthline.co.tz
+                info@growthlinelogistics.co.tz
               </a>
               <a href="tel:+255000000000" className="flex items-center gap-2 hover:text-emerald-300 transition-colors whitespace-nowrap">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

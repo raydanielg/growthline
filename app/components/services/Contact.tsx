@@ -52,7 +52,7 @@ export default function ServicesContact() {
                   <div className="group relative border border-zinc-100 bg-white p-8 transition-all hover:shadow-xl hover:border-[#0056b3]/20">
                     <div className="absolute top-0 left-0 w-1 h-0 bg-[#0056b3] transition-all group-hover:h-full" />
                     <p className="text-xs font-black text-zinc-400 uppercase tracking-widest">Email</p>
-                    <p className="mt-2 text-base font-bold text-zinc-900">info@growthline.co.tz</p>
+                    <p className="mt-2 text-base font-bold text-zinc-900">info@growthlinelogistics.co.tz</p>
                   </div>
                   <div className="group relative border border-zinc-100 bg-white p-8 transition-all hover:shadow-xl hover:border-[#0056b3]/20">
                     <div className="absolute top-0 left-0 w-1 h-0 bg-[#0056b3] transition-all group-hover:h-full" />

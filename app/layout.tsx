@@ -82,7 +82,7 @@ export default function RootLayout({
         name: siteName,
         url: siteUrl,
         logo: `${siteUrl}/icon.png`,
-        email: "info@growthline.co.tz",
+        email: "info@growthlinelogistics.co.tz",
         telephone: "+255 712 345 678",
       },
       {

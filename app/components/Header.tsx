@@ -14,7 +14,7 @@ export default function Header() {
           <div className="flex min-w-0 flex-1 items-center gap-3 sm:gap-6">
             <div className="flex min-w-0 items-center gap-2 whitespace-nowrap">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
-              <span className="min-w-0 truncate">Plot 126 Nelson Mandela Rd, Dar es Salaam</span>
+              <span className="min-w-0 truncate">Dar es Salaam, Tanzania</span>
             </div>
             <div className="hidden sm:flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 6v6l4 2" /><circle cx="12" cy="12" r="10" /></svg>
@@ -23,9 +23,9 @@ export default function Header() {
           </div>
 
           <div className="flex shrink-0 items-center justify-end gap-4">
-            <a href="mailto:info@growthline.co.tz" className="hidden sm:flex items-center gap-2 whitespace-nowrap hover:text-white transition-colors">
+            <a href="mailto:info@growthlinelogistics.co.tz" className="hidden sm:flex items-center gap-2 whitespace-nowrap hover:text-white transition-colors">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-              info@growthline.co.tz
+              info@growthlinelogistics.co.tz
             </a>
 
             <a href="https://www.growthline.co.tz" className="hidden md:flex items-center gap-2 whitespace-nowrap hover:text-white transition-colors" target="_blank" rel="noreferrer">
@@ -151,7 +151,7 @@ export default function Header() {
               </div>
 
               <div className="mt-3 grid gap-2 px-4 pb-2 text-[12px] text-zinc-600">
-                <a href="mailto:info@growthline.co.tz" className="hover:text-[#0056b3] transition-colors">info@growthline.co.tz</a>
+                <a href="mailto:info@growthlinelogistics.co.tz" className="hover:text-[#0056b3] transition-colors">info@growthlinelogistics.co.tz</a>
                 <a href="https://www.growthline.co.tz" target="_blank" rel="noreferrer" className="hover:text-[#0056b3] transition-colors">www.growthline.co.tz</a>
                 <a href="tel:+255712345678" className="hover:text-[#0056b3] transition-colors">+255 712 345 678</a>
               </div>

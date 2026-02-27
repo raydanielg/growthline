@@ -24,7 +24,7 @@ export default function ContactForm() {
       const url = `https://wa.me/255712345678?text=${encodeURIComponent(`*New Project Request*\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`)}`;
       window.open(url, "_blank");
     } else {
-      const mailto = `mailto:info@growthline.co.tz?subject=Project Request from ${name}&body=${encodeURIComponent(text)}`;
+      const mailto = `mailto:info@growthlinelogistics.co.tz?subject=Project Request from ${name}&body=${encodeURIComponent(text)}`;
       window.location.href = mailto;
     }
     setShowPopup(false);
