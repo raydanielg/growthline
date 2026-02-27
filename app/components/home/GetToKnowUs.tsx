@@ -9,32 +9,40 @@ export default function GetToKnowUs() {
             <div className="absolute left-0 top-6 h-28 w-2 rounded-full bg-[#0056b3]" />
 
             <div className="relative pl-6 sm:pl-10">
-              <div className="relative overflow-hidden rounded-[2rem] border border-zinc-200 bg-white shadow-2xl shadow-zinc-400/20">
+              {/* Animated corner lines */}
+              <div className="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-[#0056b3] z-20 animate-pulse" />
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-[#0056b3] z-20 animate-pulse delay-700" />
+              
+              <div className="relative overflow-hidden bg-white shadow-2xl shadow-zinc-400/20 group/img">
                 <div className="relative aspect-[4/5] w-full">
                   <Image
                     src="/trucksimages/JAY_5469.JPG"
                     alt="Growthline Logistics operations"
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-700 group-hover/img:scale-105"
                     sizes="(max-width: 1024px) 92vw, 520px"
                     priority={false}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+                  {/* Moving scan line effect */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0056b3]/20 to-transparent h-1/2 w-full -translate-y-full animate-[scan_4s_linear_infinite] pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 </div>
               </div>
 
-              <div className="absolute -bottom-10 -left-2 sm:-left-6 w-[72%]">
-                <div className="relative overflow-hidden rounded-[1.75rem] border border-zinc-200 bg-white shadow-2xl shadow-zinc-400/20">
+              <div className="absolute -bottom-10 -left-2 sm:-left-6 w-[72%] z-10">
+                <div className="relative overflow-hidden bg-white shadow-2xl shadow-zinc-400/20 group/img2">
                   <div className="relative aspect-[16/10] w-full">
                     <Image
                       src="/trucksimages/DJI_0607.JPG"
                       alt="Growthline Logistics team"
                       fill
-                      className="object-cover"
+                      className="object-cover transition-transform duration-700 group-hover/img2:scale-105"
                       sizes="(max-width: 1024px) 70vw, 420px"
                       priority={false}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-transparent" />
+                    {/* Moving scan line effect */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0056b3]/20 to-transparent h-1/2 w-full -translate-y-full animate-[scan_6s_linear_infinite] pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-black/30 via-transparent to-transparent" />
                   </div>
                 </div>
               </div>

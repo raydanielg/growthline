@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
 const items = [
   {
@@ -31,7 +33,7 @@ const items = [
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
     ),
-    image: "/949888e8-341f-4b7a-a82d-f56f6e04431a.JPG.jpeg",
+    image: "/WhatsApp Image 2026-02-26 at 22.40.47.jpeg",
     color: "text-[#0056b3]",
     accent: "bg-[#0056b3]/10",
   },
@@ -48,19 +50,35 @@ const items = [
 ];
 
 export default function ServicesPreview() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true,
+    align: "start",
+    skipSnaps: false
+  });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi, setSelectedIndex]);
 
   useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    
     const interval = setInterval(() => {
-      setIsAnimating(true);
-      setTimeout(() => {
-        setCurrentSlide((prev) => (prev + 1) % items.length);
-        setIsAnimating(false);
-      }, 500);
+      emblaApi.scrollNext();
     }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+
+    return () => {
+      emblaApi.off("select", onSelect);
+      clearInterval(interval);
+    };
+  }, [emblaApi, onSelect]);
 
   return (
     <section className="bg-zinc-50 py-24 relative overflow-hidden">
@@ -69,106 +87,89 @@ export default function ServicesPreview() {
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/5 blur-[120px] -z-10" />
 
       <div className="mx-auto w-full max-w-7xl px-6">
-        <div className="flex flex-col items-center text-center mb-16 space-y-4">
-          <p className="text-[#0056b3] font-black uppercase tracking-[0.3em] text-xs">Expertise</p>
-          <h3 className="text-4xl sm:text-5xl font-black text-zinc-900 leading-tight">
-            Our <span className="text-[#0056b3]">Services</span>
-          </h3>
-          <p className="max-w-2xl text-zinc-600 text-lg">
-            Specialized solutions designed for industrial efficiency and operational excellence.
-          </p>
-        </div>
-
-        {/* DESKTOP GRID */}
-        <div className="hidden lg:grid gap-8 grid-cols-4">
-          {items.map((it, idx) => (
-            <Link
-              key={it.title}
-              href="/services"
-              className="group relative h-[500px] rounded-[2.5rem] overflow-hidden bg-white border border-zinc-100 shadow-xl hover:shadow-2xl transition-all duration-700 hover:-translate-y-2"
-              style={{ transitionDelay: `${idx * 100}ms` }}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="space-y-4">
+            <p className="text-[#0056b3] font-black uppercase tracking-[0.3em] text-xs">Expertise</p>
+            <h3 className="text-4xl sm:text-5xl font-black text-zinc-900 leading-tight">
+              Our <span className="text-[#0056b3]">Services</span>
+            </h3>
+            <p className="max-w-2xl text-zinc-600 text-lg">
+              Specialized solutions designed for industrial efficiency and operational excellence.
+            </p>
+          </div>
+          
+          <div className="flex items-center gap-3">
+            <button 
+              onClick={scrollPrev}
+              className="group h-12 w-12 rounded-full border border-zinc-200 bg-white flex items-center justify-center hover:bg-[#0056b3] hover:border-[#0056b3] transition-all duration-300"
+              aria-label="Previous slide"
             >
-              <Image 
-                src={it.image} 
-                alt={it.title} 
-                fill 
-                className="object-cover transition-transform duration-1000 group-hover:scale-110 group-hover:rotate-1" 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent transition-opacity duration-500 group-hover:opacity-90"></div>
-              
-              {/* Content Overlay */}
-              <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                <div className={`w-14 h-14 rounded-2xl ${it.accent} backdrop-blur-md flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6`}>
-                  <div className={it.color}>{it.icon}</div>
-                </div>
-                
-                <div className="space-y-3 transform transition-transform duration-500 group-hover:-translate-y-2">
-                  <h4 className="text-2xl font-black text-white leading-tight">{it.title}</h4>
-                  <p className="text-zinc-300 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                    {it.desc}
-                  </p>
-                  
-                  <div className="flex items-center gap-2 pt-4 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200">
-                    <span className="text-white text-xs font-black uppercase tracking-widest">Explore</span>
-                    <div className="h-0.5 w-8 bg-[#0056b3] rounded-full"></div>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          ))}
+              <ChevronLeft className="w-5 h-5 text-zinc-600 group-hover:text-white transition-colors" />
+            </button>
+            <button 
+              onClick={scrollNext}
+              className="group h-12 w-12 rounded-full border border-zinc-200 bg-white flex items-center justify-center hover:bg-[#0056b3] hover:border-[#0056b3] transition-all duration-300"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="w-5 h-5 text-zinc-600 group-hover:text-white transition-colors" />
+            </button>
+          </div>
         </div>
 
-        {/* MOBILE SLIDER - IMPROVED TRANSITIONS */}
-        <div className="lg:hidden relative">
-          <div className="relative h-[500px] w-full">
-            {items.map((it, index) => (
-              <div
-                key={it.title}
-                className={`absolute inset-0 transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] ${
-                  index === currentSlide 
-                    ? "opacity-100 translate-x-0 scale-100 rotate-0" 
-                    : index < currentSlide 
-                    ? "opacity-0 -translate-x-full scale-90 -rotate-6" 
-                    : "opacity-0 translate-x-full scale-90 rotate-6"
-                }`}
-              >
-                <div className="relative h-full w-full rounded-[3rem] overflow-hidden shadow-2xl border border-zinc-100">
-                  <Image src={it.image} alt={it.title} fill className="object-cover" />
+        {/* CAROUSEL */}
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex -ml-6">
+            {items.map((it, idx) => (
+              <div key={idx} className="flex-[0_0_100%] min-w-0 pl-6 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%]">
+                <Link
+                  href="/services"
+                  className="group relative block h-[500px] rounded-[2.5rem] overflow-hidden bg-white border border-zinc-100 shadow-xl transition-all duration-700"
+                >
+                  <Image 
+                    src={it.image} 
+                    alt={it.title} 
+                    fill 
+                    className="object-cover transition-transform duration-1000 group-hover:scale-110" 
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
                   
-                  <div className="absolute inset-0 p-10 flex flex-col justify-end items-center text-center">
-                    <div className={`w-16 h-16 rounded-[1.5rem] ${it.accent} backdrop-blur-md flex items-center justify-center mb-6`}>
+                  {/* Content Overlay */}
+                  <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                    <div className={`w-14 h-14 rounded-2xl ${it.accent} backdrop-blur-md flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6`}>
                       <div className={it.color}>{it.icon}</div>
                     </div>
-                    <h4 className="text-3xl font-black text-white mb-4 leading-tight">{it.title}</h4>
-                    <p className="text-zinc-300 text-base leading-relaxed mb-10 max-w-sm">
-                      {it.desc}
-                    </p>
-                    <Link 
-                      href="/services" 
-                      className="inline-flex h-14 items-center justify-center rounded-2xl bg-white px-8 text-sm font-black text-zinc-900 shadow-xl active:scale-95 transition-transform"
-                    >
-                      View Details
-                    </Link>
+                    
+                    <div className="space-y-3 transform transition-transform duration-500 group-hover:-translate-y-2">
+                      <h4 className="text-2xl font-black text-white leading-tight">{it.title}</h4>
+                      <p className="text-zinc-300 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-all duration-500 line-clamp-2">
+                        {it.desc}
+                      </p>
+                      
+                      <div className="flex items-center gap-2 pt-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
+                        <span className="text-white text-xs font-black uppercase tracking-widest flex items-center gap-2">
+                          Explore <ArrowRight className="w-4 h-4" />
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </div>
             ))}
           </div>
+        </div>
 
-          {/* INDICATORS */}
-          <div className="flex justify-center gap-3 mt-12">
-            {items.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrentSlide(i)}
-                className={`h-2 transition-all duration-700 rounded-full ${
-                  i === currentSlide ? "w-10 bg-[#0056b3] shadow-[0_0_15px_rgba(0,86,179,0.45)]" : "w-2 bg-zinc-300"
-                }`}
-                aria-label={`Go to slide ${i + 1}`}
-              />
-            ))}
-          </div>
+        {/* PROGRESS BAR */}
+        <div className="mt-12 flex items-center justify-center gap-2">
+          {items.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => emblaApi && emblaApi.scrollTo(i)}
+              className={`h-1.5 transition-all duration-500 rounded-full ${
+                i === selectedIndex ? "w-12 bg-[#0056b3]" : "w-4 bg-zinc-200"
+              }`}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>

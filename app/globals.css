@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+@theme {
+  @keyword scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(200%); }
+  }
+  
+  --animate-scan: scan 4s linear infinite;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #000000;
