@@ -21,7 +21,7 @@ export default function ContactForm() {
     const text = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
     
     if (type === "whatsapp") {
-      const url = `https://wa.me/255712345678?text=${encodeURIComponent(`*New Project Request*\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`)}`;
+      const url = `https://wa.me/255799012028?text=${encodeURIComponent(`*New Project Request*\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`)}`;
       window.open(url, "_blank");
     } else {
       const mailto = `mailto:info@growthlinelogistics.co.tz?subject=Project Request from ${name}&body=${encodeURIComponent(text)}`;

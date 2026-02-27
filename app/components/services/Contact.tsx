@@ -28,10 +28,10 @@ export default function ServicesContact() {
                   Contact Us
                 </Link>
                 <a
-                  href="tel:+255712345678"
+                  href="tel:+255799012028"
                   className="inline-flex h-14 items-center justify-center rounded-xl border-2 border-zinc-900 bg-zinc-950 px-10 text-sm font-black text-white hover:bg-zinc-800 transition-all active:scale-95"
                 >
-                  Call +255 712 345 678
+                  Call +255 799 012 028
                 </a>
               </div>
             </div>
@@ -58,7 +58,7 @@ export default function ServicesContact() {
                     <div className="absolute top-0 left-0 w-1 h-0 bg-[#0056b3] transition-all group-hover:h-full" />
                     <p className="text-xs font-black text-zinc-400 uppercase tracking-widest">Phone</p>
                     <p className="mt-2 text-base font-bold text-zinc-900 whitespace-nowrap">
-                      +255 712 345 678
+                      +255 799 012 028
                     </p>
                   </div>
                 </div>

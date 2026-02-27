@@ -83,7 +83,7 @@ export default function RootLayout({
         url: siteUrl,
         logo: `${siteUrl}/icon.png`,
         email: "info@growthlinelogistics.co.tz",
-        telephone: "+255 712 345 678",
+        telephone: "+255 799 012 028",
       },
       {
         "@type": "WebSite",

@@ -13,7 +13,7 @@ export default function ContactInfo() {
         <div className="group relative border border-zinc-100 bg-zinc-50/50 p-6 transition-all hover:bg-white hover:shadow-lg">
           <div className="absolute top-0 left-0 w-1 h-0 bg-[#0056b3] transition-all group-hover:h-full" />
           <p className="text-xs font-black text-zinc-400 uppercase tracking-widest">Phone</p>
-          <p className="mt-2 text-base font-bold text-zinc-900">+255 712 345 678</p>
+          <p className="mt-2 text-base font-bold text-zinc-900">+255 799 012 028</p>
         </div>
         <div className="group relative border border-zinc-100 bg-zinc-50/50 p-6 transition-all hover:bg-white hover:shadow-lg">
           <div className="absolute top-0 left-0 w-1 h-0 bg-[#0056b3] transition-all group-hover:h-full" />

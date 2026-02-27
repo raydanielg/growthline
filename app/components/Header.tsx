@@ -33,9 +33,9 @@ export default function Header() {
               growthlinelogistics.co.tz
             </a>
 
-            <a href="tel:+255712345678" className="flex items-center gap-2 whitespace-nowrap hover:text-white transition-colors">
+            <a href="tel:+255799012028" className="flex items-center gap-2 whitespace-nowrap hover:text-white transition-colors">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-              +255 712 345 678
+              +255 799 012 028
             </a>
 
             <div className="hidden md:flex items-center gap-3 text-zinc-300">
@@ -153,7 +153,7 @@ export default function Header() {
               <div className="mt-3 grid gap-2 px-4 pb-2 text-[12px] text-zinc-600">
                 <a href="mailto:info@growthlinelogistics.co.tz" className="hover:text-[#0056b3] transition-colors">info@growthlinelogistics.co.tz</a>
                 <a href="https://growthlinelogistics.co.tz/" target="_blank" rel="noreferrer" className="hover:text-[#0056b3] transition-colors">growthlinelogistics.co.tz</a>
-                <a href="tel:+255712345678" className="hover:text-[#0056b3] transition-colors">+255 712 345 678</a>
+                <a href="tel:+255799012028" className="hover:text-[#0056b3] transition-colors">+255 799 012 028</a>
               </div>
             </div>
           </div>
