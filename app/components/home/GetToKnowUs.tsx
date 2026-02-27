@@ -21,15 +21,7 @@ const secondaryImages = [
 ];
 
 export default function GetToKnowUs() {
-  const [currentIdx, setCurrentIdx] = useState(0);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIdx((prev) => (prev + 1) % mainImages.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
 
   return (
     <section className="relative bg-zinc-100 py-20 overflow-hidden">
@@ -47,6 +39,8 @@ export default function GetToKnowUs() {
               src="/myvideo.mp4" 
               autoPlay 
               controls 
+              controlsList="nodownload"
+              onContextMenu={(e) => e.preventDefault()}
               className="w-full h-full object-contain"
             />
           </div>
@@ -65,23 +59,14 @@ export default function GetToKnowUs() {
               
               <div className="relative overflow-hidden bg-white shadow-2xl shadow-zinc-400/20 group/img">
                 <div className="relative aspect-[4/5] w-full">
-                  {mainImages.map((src, idx) => (
-                    <div
-                      key={src}
-                      className={`absolute inset-0 transition-opacity duration-1000 ${
-                        idx === currentIdx ? "opacity-100 z-10" : "opacity-0 z-0"
-                      }`}
-                    >
-                      <Image
-                        src={src}
-                        alt="Growthline Logistics operations"
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover/img:scale-105"
-                        sizes="(max-width: 1024px) 92vw, 520px"
-                        priority={idx === 0}
-                      />
-                    </div>
-                  ))}
+                  <Image
+                    src="/trucksimages/JAY_5449.JPG"
+                    alt="Growthline Logistics operations"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover/img:scale-105"
+                    sizes="(max-width: 1024px) 92vw, 520px"
+                    priority
+                  />
                   {/* Moving scan line effect */}
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0056b3]/20 to-transparent h-1/2 w-full -translate-y-full animate-[scan_4s_linear_infinite] pointer-events-none z-20" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10" />
@@ -92,13 +77,23 @@ export default function GetToKnowUs() {
                 <div className="relative overflow-hidden bg-white shadow-2xl shadow-zinc-400/20 group/img2">
                   <div className="relative aspect-[16/10] w-full">
                     <Image
-                      src={secondaryImages[currentIdx % secondaryImages.length]}
+                      src="/WhatsApp Image 2026-02-27 at 00.00.49.jpeg"
                       alt="Growthline Logistics team"
                       fill
                       className="object-cover transition-transform duration-700 group-hover/img2:scale-105"
                       sizes="(max-width: 1024px) 70vw, 420px"
                       priority={false}
                     />
+                    {/* Experience Badge */}
+                    <div className="absolute top-0 right-0 z-40 bg-[#0056b3] p-4 shadow-2xl">
+                      <div className="flex flex-col items-center justify-center text-center">
+                        <span className="text-4xl font-black text-white leading-none">10+</span>
+                        <div className="mt-1 flex flex-col">
+                          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-100 leading-none">Years of</span>
+                          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white leading-none mt-1.5">Experience</span>
+                        </div>
+                      </div>
+                    </div>
                     {/* Moving scan line effect */}
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0056b3]/20 to-transparent h-1/2 w-full -translate-y-full animate-[scan_6s_linear_infinite] pointer-events-none z-20" />
                     <div className="absolute inset-0 bg-gradient-to-tr from-black/30 via-transparent to-transparent z-10" />
