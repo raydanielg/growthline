@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.growthline.co.tz";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.growthlinelogistics.co.tz";
 const siteName = "Growthline Logistics";
 const siteDescription =
   "Growthline Logistics provides logistics, transport, equipment rental, and project support services across Tanzania—built for safety-first, on-time delivery.";

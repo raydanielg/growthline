@@ -28,9 +28,9 @@ export default function Header() {
               info@growthlinelogistics.co.tz
             </a>
 
-            <a href="https://www.growthline.co.tz" className="hidden md:flex items-center gap-2 whitespace-nowrap hover:text-white transition-colors" target="_blank" rel="noreferrer">
+            <a href="https://growthlinelogistics.co.tz/" className="hidden md:flex items-center gap-2 whitespace-nowrap hover:text-white transition-colors" target="_blank" rel="noreferrer">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg>
-              www.growthline.co.tz
+              growthlinelogistics.co.tz
             </a>
 
             <a href="tel:+255712345678" className="flex items-center gap-2 whitespace-nowrap hover:text-white transition-colors">
@@ -152,7 +152,7 @@ export default function Header() {
 
               <div className="mt-3 grid gap-2 px-4 pb-2 text-[12px] text-zinc-600">
                 <a href="mailto:info@growthlinelogistics.co.tz" className="hover:text-[#0056b3] transition-colors">info@growthlinelogistics.co.tz</a>
-                <a href="https://www.growthline.co.tz" target="_blank" rel="noreferrer" className="hover:text-[#0056b3] transition-colors">www.growthline.co.tz</a>
+                <a href="https://growthlinelogistics.co.tz/" target="_blank" rel="noreferrer" className="hover:text-[#0056b3] transition-colors">growthlinelogistics.co.tz</a>
                 <a href="tel:+255712345678" className="hover:text-[#0056b3] transition-colors">+255 712 345 678</a>
               </div>
             </div>

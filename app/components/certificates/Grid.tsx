@@ -19,6 +19,12 @@ export default function CertificatesGrid() {
       type: "PDF Document"
     },
     {
+      title: "TIN Certificate",
+      desc: "Taxpayer Identification Number (TIN) registration for Growthline Logistics.",
+      file: "/GROWTHLINE TIN CERTIFICATE.pdf",
+      type: "PDF Document"
+    },
+    {
       title: "HSE Policy",
       desc: "Health, Safety & Environment policy documentation and procedures.",
       file: null,

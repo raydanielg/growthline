@@ -1,6 +1,29 @@
 import Image from "next/image";
+import { useState, useEffect } from "react";
+
+const mainImages = [
+  "/trucksimages/JAY_5449.JPG",
+  "/trucksimages/JAY_5471.JPG",
+  "/trucksimages/JAY_5491.JPG",
+  "/trucksimages/JAY_5590.JPG",
+  "/trucksimages/JAY_5606.JPG",
+];
+
+const secondaryImages = [
+  "/trucksimages/DJI_0607.JPG",
+  "/trucksimages/JAY_5469.JPG",
+];
 
 export default function GetToKnowUs() {
+  const [currentIdx, setCurrentIdx] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIdx((prev) => (prev + 1) % mainImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative bg-zinc-100 py-20 overflow-hidden">
       <div className="mx-auto w-full max-w-7xl px-6">
@@ -15,25 +38,34 @@ export default function GetToKnowUs() {
               
               <div className="relative overflow-hidden bg-white shadow-2xl shadow-zinc-400/20 group/img">
                 <div className="relative aspect-[4/5] w-full">
-                  <Image
-                    src="/trucksimages/JAY_5469.JPG"
-                    alt="Growthline Logistics operations"
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover/img:scale-105"
-                    sizes="(max-width: 1024px) 92vw, 520px"
-                    priority={false}
-                  />
+                  {mainImages.map((src, idx) => (
+                    <div
+                      key={src}
+                      className={`absolute inset-0 transition-opacity duration-1000 ${
+                        idx === currentIdx ? "opacity-100 z-10" : "opacity-0 z-0"
+                      }`}
+                    >
+                      <Image
+                        src={src}
+                        alt="Growthline Logistics operations"
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover/img:scale-105"
+                        sizes="(max-width: 1024px) 92vw, 520px"
+                        priority={idx === 0}
+                      />
+                    </div>
+                  ))}
                   {/* Moving scan line effect */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0056b3]/20 to-transparent h-1/2 w-full -translate-y-full animate-[scan_4s_linear_infinite] pointer-events-none" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0056b3]/20 to-transparent h-1/2 w-full -translate-y-full animate-[scan_4s_linear_infinite] pointer-events-none z-20" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10" />
                 </div>
               </div>
 
-              <div className="absolute -bottom-10 -left-2 sm:-left-6 w-[72%] z-10">
+              <div className="absolute -bottom-10 -left-2 sm:-left-6 w-[72%] z-30">
                 <div className="relative overflow-hidden bg-white shadow-2xl shadow-zinc-400/20 group/img2">
                   <div className="relative aspect-[16/10] w-full">
                     <Image
-                      src="/trucksimages/DJI_0607.JPG"
+                      src={secondaryImages[currentIdx % secondaryImages.length]}
                       alt="Growthline Logistics team"
                       fill
                       className="object-cover transition-transform duration-700 group-hover/img2:scale-105"
@@ -41,8 +73,8 @@ export default function GetToKnowUs() {
                       priority={false}
                     />
                     {/* Moving scan line effect */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0056b3]/20 to-transparent h-1/2 w-full -translate-y-full animate-[scan_6s_linear_infinite] pointer-events-none" />
-                    <div className="absolute inset-0 bg-gradient-to-tr from-black/30 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0056b3]/20 to-transparent h-1/2 w-full -translate-y-full animate-[scan_6s_linear_infinite] pointer-events-none z-20" />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-black/30 via-transparent to-transparent z-10" />
                   </div>
                 </div>
               </div>
