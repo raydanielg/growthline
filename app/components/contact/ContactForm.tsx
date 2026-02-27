@@ -1,33 +1,50 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 
 export default function ContactForm() {
-  const [showPopup, setShowPopup] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    company: "",
+    industry: "",
+    phone: "",
+    subject: "",
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setShowPopup(true);
-  };
+    setStatus("loading");
 
-  const handleChoice = (type: "email" | "whatsapp") => {
-    const { name, email, message } = formData;
-    const text = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
-    
-    if (type === "whatsapp") {
-      const url = `https://wa.me/255799012028?text=${encodeURIComponent(`*New Project Request*\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${message}`)}`;
-      window.open(url, "_blank");
-    } else {
-      const mailto = `mailto:info@growthlinelogistics.co.tz?subject=Project Request from ${name}&body=${encodeURIComponent(text)}`;
-      window.location.href = mailto;
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          industry: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+        setTimeout(() => setStatus("idle"), 5000);
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 5000);
+      }
+    } catch {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
     }
-    setShowPopup(false);
   };
 
   return (
@@ -40,7 +57,7 @@ export default function ContactForm() {
         </div>
       </div>
 
-      <form onSubmit={handleSubmit} className="mt-12 grid gap-8">
+      <form onSubmit={handleSubmit} className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2">
         <label className="grid gap-3 group">
           <span className="text-xs font-black text-zinc-400 uppercase tracking-widest group-focus-within:text-[#0056b3] transition-colors">Full name</span>
           <input
@@ -50,6 +67,18 @@ export default function ContactForm() {
             placeholder="Your name"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+          />
+        </label>
+
+        <label className="grid gap-3 group">
+          <span className="text-xs font-black text-zinc-400 uppercase tracking-widest group-focus-within:text-[#0056b3] transition-colors">Company Name</span>
+          <input
+            required
+            className="h-14 border-b-2 border-zinc-100 bg-transparent text-lg text-zinc-900 outline-none transition focus:border-[#0056b3]"
+            name="company"
+            placeholder="Your company"
+            value={formData.company}
+            onChange={(e) => setFormData({ ...formData, company: e.target.value })}
           />
         </label>
 
@@ -67,6 +96,49 @@ export default function ContactForm() {
         </label>
 
         <label className="grid gap-3 group">
+          <span className="text-xs font-black text-zinc-400 uppercase tracking-widest group-focus-within:text-[#0056b3] transition-colors">Phone Number</span>
+          <input
+            required
+            className="h-14 border-b-2 border-zinc-100 bg-transparent text-lg text-zinc-900 outline-none transition focus:border-[#0056b3]"
+            name="phone"
+            placeholder="+255 --- --- ---"
+            value={formData.phone}
+            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+          />
+        </label>
+
+        <label className="grid gap-3 group">
+          <span className="text-xs font-black text-zinc-400 uppercase tracking-widest group-focus-within:text-[#0056b3] transition-colors">Industry</span>
+          <select
+            required
+            className="h-14 border-b-2 border-zinc-100 bg-transparent text-lg text-zinc-900 outline-none transition focus:border-[#0056b3] appearance-none"
+            name="industry"
+            value={formData.industry}
+            onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
+          >
+            <option value="" disabled>Select industry</option>
+            <option value="Mining">Mining</option>
+            <option value="Construction">Construction</option>
+            <option value="Energy">Energy</option>
+            <option value="Manufacturing">Manufacturing</option>
+            <option value="Logistics">Logistics</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+
+        <label className="grid gap-3 group">
+          <span className="text-xs font-black text-zinc-400 uppercase tracking-widest group-focus-within:text-[#0056b3] transition-colors">Subject</span>
+          <input
+            required
+            className="h-14 border-b-2 border-zinc-100 bg-transparent text-lg text-zinc-900 outline-none transition focus:border-[#0056b3]"
+            name="subject"
+            placeholder="What is this regarding?"
+            value={formData.subject}
+            onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+          />
+        </label>
+
+        <label className="grid gap-3 group sm:col-span-2">
           <span className="text-xs font-black text-zinc-400 uppercase tracking-widest group-focus-within:text-[#0056b3] transition-colors">Message</span>
           <textarea
             required
@@ -78,65 +150,27 @@ export default function ContactForm() {
           />
         </label>
 
-        <button
-          type="submit"
-          className="mt-4 inline-flex h-14 items-center justify-center rounded-xl bg-[#0056b3] px-10 text-sm font-black text-white shadow-xl shadow-[#0056b3]/20 transition hover:bg-[#004494] active:scale-95 w-full sm:w-max border-b-4 border-[#003f8c]"
-        >
-          Submit Request
-        </button>
-      </form>
+        <div className="sm:col-span-2 flex flex-col sm:flex-row items-center gap-6">
+          <button
+            type="submit"
+            disabled={status === "loading"}
+            className="inline-flex h-14 items-center justify-center rounded-xl bg-[#0056b3] px-10 text-sm font-black text-white shadow-xl shadow-[#0056b3]/20 transition hover:bg-[#004494] active:scale-95 w-full sm:w-max border-b-4 border-[#003f8c] disabled:opacity-50"
+          >
+            {status === "loading" ? "Processing..." : "Submit Request"}
+          </button>
 
-      {/* POPUP SELECTION */}
-      {showPopup && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-zinc-950/60 backdrop-blur-sm animate-in fade-in duration-300">
-          <div className="relative w-full max-w-md bg-white border border-zinc-100 p-10 shadow-2xl animate-in zoom-in-95 duration-300">
-            <div className="absolute top-0 left-0 h-1.5 w-full bg-[#0056b3]" />
-            <h3 className="text-2xl font-black text-zinc-900 uppercase tracking-tighter">Submit via</h3>
-            <p className="mt-4 text-zinc-500 font-medium leading-relaxed">
-              How would you like to send this request? Select your preferred platform.
+          {status === "success" && (
+            <p className="text-emerald-600 font-bold animate-in fade-in slide-in-from-left-2">
+              ✓ Message submitted successfully!
             </p>
-            
-            <div className="mt-10 grid gap-4">
-              <button
-                onClick={() => handleChoice("whatsapp")}
-                className="flex items-center justify-between w-full p-6 border-2 border-zinc-100 hover:border-[#25D366] hover:bg-green-50 transition-all group"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 bg-green-50 flex items-center justify-center group-hover:bg-[#25D366] transition-all duration-300">
-                    <img 
-                      src="/Whatsapp-Linear-32px.svg" 
-                      alt="WhatsApp" 
-                      className="w-7 h-7 transition-all duration-300 group-hover:brightness-0 group-hover:invert"
-                    />
-                  </div>
-                  <span className="font-black text-zinc-900 uppercase tracking-tight">Official WhatsApp</span>
-                </div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-300 group-hover:text-[#25D366] group-hover:translate-x-1 transition-all"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              </button>
-
-              <button
-                onClick={() => handleChoice("email")}
-                className="flex items-center justify-between w-full p-6 border-2 border-zinc-100 hover:border-[#0056b3] hover:bg-blue-50 transition-all group"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 bg-blue-50 text-[#0056b3] flex items-center justify-center group-hover:bg-[#0056b3] group-hover:text-white transition-all duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                  </div>
-                  <span className="font-black text-zinc-900 uppercase tracking-tight">Email Hub</span>
-                </div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-zinc-300 group-hover:text-[#0056b3] group-hover:translate-x-1 transition-all"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              </button>
-            </div>
-
-            <button
-              onClick={() => setShowPopup(false)}
-              className="mt-8 w-full text-center text-xs font-black text-zinc-400 uppercase tracking-widest hover:text-zinc-900 transition-colors"
-            >
-              Cancel
-            </button>
-          </div>
+          )}
+          {status === "error" && (
+            <p className="text-red-500 font-bold animate-in fade-in slide-in-from-left-2">
+              ✕ Failed to send. Please try again.
+            </p>
+          )}
         </div>
-      )}
+      </form>
     </section>
   );
 }
