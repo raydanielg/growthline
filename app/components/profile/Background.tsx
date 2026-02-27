@@ -60,7 +60,7 @@ export default function ProfileBackground() {
               <span className="block text-[#0056b3]">Proven in execution</span>
             </h2>
             <p className="mt-8 text-zinc-600 text-base sm:text-lg leading-relaxed">
-              Growthline Limited supports industrial operations with reliable logistics,
+              Growthline Logistics supports industrial operations with reliable logistics,
               equipment readiness, and responsive site support. We focus on safety-first
               execution, clear communication, and consistent delivery timelines.
             </p>

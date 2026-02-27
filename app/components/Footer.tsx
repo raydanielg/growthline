@@ -24,14 +24,14 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center gap-3">
               <Image
                 src="/logo.png"
-                alt="Growthline logo"
+                alt="Growthline Logistics logo"
                 width={160}
                 height={60}
                 className="h-10 w-auto object-contain"
               />
             </Link>
             <p className="text-zinc-300 leading-relaxed max-w-sm">
-              Growthline Limited delivers industrial logistics, equipment rental, bulk cargo handling, and site support services across Tanzania and East Africa.
+              Growthline Logistics delivers industrial logistics, equipment rental, bulk cargo handling, and site support services across Tanzania and East Africa.
             </p>
 
             {/* SOCIAL */}
@@ -161,7 +161,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 py-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-sm text-zinc-400">© {year} Growthline Limited. All rights reserved.</p>
+          <p className="text-sm text-zinc-400">© {year} Growthline Logistics. All rights reserved.</p>
           <p className="text-sm text-zinc-500">Industrial Logistics • Equipment Rental • Water Supply</p>
         </div>
       </div>

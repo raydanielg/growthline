@@ -8,7 +8,7 @@ export default function CertificatesGrid() {
   const docs = [
     {
       title: "Certificate of Incorporation",
-      desc: "Official BRELA registration for Growthline Limited.",
+      desc: "Official BRELA registration for Growthline Logistics.",
       file: "/GLC CERTIFICATE OF INCORPORATION.pdf",
       type: "PDF Document"
     },

@@ -33,7 +33,7 @@ export default function ProfileMission() {
 
             <div className="pt-4 flex items-center gap-4">
               <div className="h-1 w-12 bg-[#0056b3]" />
-              <span className="text-sm font-bold text-zinc-400 uppercase tracking-widest">Growthline Standards</span>
+              <span className="text-sm font-bold text-zinc-400 uppercase tracking-widest">Growthline Logistics Standards</span>
             </div>
           </div>
 

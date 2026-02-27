@@ -39,7 +39,7 @@ export default function ProfileHero() {
               Company Profile
             </p>
             <h1 className="mt-5 text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1]">
-              Growthline Limited
+              Growthline Logistics
             </h1>
 
             <p className="mt-6 max-w-2xl text-zinc-300 text-sm sm:text-base leading-relaxed">

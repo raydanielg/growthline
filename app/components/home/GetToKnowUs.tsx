@@ -13,7 +13,7 @@ export default function GetToKnowUs() {
                 <div className="relative aspect-[4/5] w-full">
                   <Image
                     src="/trucksimages/JAY_5469.JPG"
-                    alt="Growthline operations"
+                    alt="Growthline Logistics operations"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 92vw, 520px"
@@ -28,7 +28,7 @@ export default function GetToKnowUs() {
                   <div className="relative aspect-[16/10] w-full">
                     <Image
                       src="/trucksimages/DJI_0607.JPG"
-                      alt="Growthline team"
+                      alt="Growthline Logistics team"
                       fill
                       className="object-cover"
                       sizes="(max-width: 1024px) 70vw, 420px"
@@ -70,7 +70,7 @@ export default function GetToKnowUs() {
 
               <div className="space-y-4 text-zinc-600 text-sm sm:text-base leading-relaxed">
                 <p>
-                  Growthline supports construction and industrial operations with reliable fleet deployment,
+                  Growthline Logistics supports construction and industrial operations with reliable fleet deployment,
                   clear coordination, and consistent execution across demanding environments.
                 </p>
                 <p>
@@ -119,7 +119,7 @@ export default function GetToKnowUs() {
                   </div>
                 </div>
                 <div>
-                  <p className="text-sm font-black text-zinc-900">Growthline Team</p>
+                  <p className="text-sm font-black text-zinc-900">Growthline Logistics Team</p>
                   <p className="text-xs font-bold text-[#0056b3]">Operations</p>
                 </div>
               </div>

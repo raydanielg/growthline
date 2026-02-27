@@ -66,7 +66,7 @@ export default function ServicesContact() {
                 <div className="mt-12">
                   <div className="h-1.5 w-16 bg-[#0056b3]" />
                   <p className="mt-4 text-xs font-black uppercase tracking-[0.4em] text-zinc-950">
-                    Growthline Limited
+                    Growthline Logistics
                   </p>
                 </div>
               </div>

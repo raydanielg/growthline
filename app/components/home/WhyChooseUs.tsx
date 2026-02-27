@@ -65,7 +65,7 @@ export default function WhyChooseUs() {
           </div>
           <div className="lg:col-span-6">
             <p className="text-zinc-600 text-base sm:text-lg leading-relaxed">
-              Growthline combines a reliable fleet, clear coordination, and safety-first execution to keep
+              Growthline Logistics combines a reliable fleet, clear coordination, and safety-first execution to keep
               projects moving—on schedule, with fewer surprises.
             </p>
           </div>

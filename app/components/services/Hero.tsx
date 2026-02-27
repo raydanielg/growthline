@@ -31,7 +31,7 @@ export default function ServicesHero() {
 
             <p className="mt-6 max-w-2xl text-zinc-300 text-sm sm:text-base leading-relaxed">
               From bulk cargo handling to equipment rental and project logistics—
-              Growthline delivers safety-first execution and responsive support.
+              Growthline Logistics delivers safety-first execution and responsive support.
             </p>
 
             <div className="mt-8">

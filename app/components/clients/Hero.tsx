@@ -30,7 +30,7 @@ export default function ClientsHero() {
             </h1>
 
             <p className="mt-6 max-w-2xl text-zinc-300 text-sm sm:text-base leading-relaxed">
-              Growthline supports industrial operations with reliable logistics, safety-first
+              Growthline Logistics supports industrial operations with reliable logistics, safety-first
               execution, and consistent delivery across all project scales.
             </p>
 

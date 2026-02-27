@@ -8,7 +8,7 @@ export default function WaterSupply() {
       <div className="flex items-start justify-between gap-6">
         <div>
           <p className="text-[#0056b3] text-xs font-black uppercase tracking-[0.4em]">Service</p>
-          <h3 className="mt-4 text-2xl font-black text-zinc-900 leading-tight">Water Equipment & <br/>Bowser Services</h3>
+          <h3 className="mt-4 text-2xl font-black text-zinc-900 leading-tight">Water Supply & <br/>Water Bowser</h3>
         </div>
         <div className="h-14 w-14 shrink-0 bg-blue-50 text-[#0056b3] flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
           <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3-2-4s-2-2-2-4a3 3 0 0 0-6 0c0 2-1 3-2 4s-2 2-2 4a7 7 0 0 0 7 7Z"/></svg>

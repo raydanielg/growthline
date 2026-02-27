@@ -5,9 +5,9 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.growthline.co.tz";
-const siteName = "Growthline Limited";
+const siteName = "Growthline Logistics";
 const siteDescription =
-  "Growthline Limited provides logistics, transport, equipment rental, and project support services across Tanzania—built for safety-first, on-time delivery.";
+  "Growthline Logistics provides logistics, transport, equipment rental, and project support services across Tanzania—built for safety-first, on-time delivery.";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

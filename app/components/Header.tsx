@@ -60,7 +60,7 @@ export default function Header() {
         <div className="mx-auto flex w-full items-center justify-between gap-4 px-6 py-3">
           <div className="flex items-center gap-3">
             <Link href="/" className="flex items-center hover:opacity-90 transition-opacity">
-              <Image src="/logo.png" alt="Growthline logo" width={160} height={60} className="h-10 sm:h-14 w-auto object-contain" priority />
+              <Image src="/logo.png" alt="Growthline Logistics logo" width={160} height={60} className="h-10 sm:h-14 w-auto object-contain" priority />
             </Link>
           </div>
 

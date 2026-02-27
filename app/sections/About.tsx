@@ -139,7 +139,7 @@ export default function About() {
             
             <div className="space-y-5">
               <p className="text-lg text-zinc-700 leading-relaxed">
-                Growthline Limited is a trusted industrial logistics partner supporting demanding operations across Tanzania and East Africa. We combine disciplined coordination, reliable equipment, and clear communication to keep sites moving.
+                Growthline Logistics is a trusted industrial logistics partner supporting demanding operations across Tanzania and East Africa. We combine disciplined coordination, reliable equipment, and clear communication to keep sites moving.
               </p>
               <p className="text-base text-zinc-600 leading-relaxed">
                 From port handling and heavy haulage to equipment rental and site support, our teams focus on safe execution, predictable delivery, and responsive service—backed by reporting you can rely on.
