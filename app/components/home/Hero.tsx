@@ -47,7 +47,7 @@ export default function Hero() {
   }, [headlinePhrases.length]);
 
   return (
-    <section className="relative h-[56vh] sm:h-[72vh] lg:h-[82vh] w-full overflow-hidden bg-black flex items-center">
+    <section className="relative min-h-[calc(100vh-72px)] sm:min-h-[calc(100vh-80px)] lg:min-h-[calc(100vh-88px)] w-full overflow-hidden bg-black flex items-center">
       {/* BACKGROUND VIDEO */}
       <video
         className="absolute inset-0 h-full w-full object-cover object-center sm:scale-105 opacity-75 sm:opacity-80 contrast-125 saturate-110"
@@ -118,17 +118,6 @@ export default function Hero() {
             strokeLinecap="round"
           />
         </svg>
-
-        <div className="absolute bottom-0 right-0 h-[64px] w-[180px] sm:h-[88px] sm:w-[240px] overflow-hidden">
-          <svg
-            viewBox="0 0 240 120"
-            className="h-full w-full"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-          >
-            <path d="M40,120 L240,52 L240,120 Z" fill="#dc2626" />
-          </svg>
-        </div>
       </div>
     </section>
   );
